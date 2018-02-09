@@ -33,34 +33,15 @@ create table team (
     team_name varchar2(256) unique not null,
     captain number(10) not null
 );
-
---
-create table team_to_user (
-    record_id number(10) primary key,
-    t_id number(10) not null,
-    p_id number(10) not null
-);
 --
 create table tournament (
     tournament_id number(10) primary key,
-    tuourny_type varchar2(256) not null,
+    tourny_type varchar2(256) not null,
     style varchar2(256) not null, --Will be bracket only for now
     owner_id number(10) not null,
     judge_id number(10) not null,
     min_num number(10) not null,
     max_num number(10) not null
-);
---
-create table tourny_to_user (
-    record_id number(10) primary key,
-    participant_id number(10) not null,
-    tourny_id number(10) not null
-);
---
-create table tourny_to_round (
-    record_id number(10) primary key,
-    round_id number(10) not null,
-    tourny_id number(10) not null
 );
 --
 create table round (
@@ -76,16 +57,20 @@ create table results (
     win number(10), -- player id of winner
     loss number(10) -- player id of loser
 );
+--
+create table team_to_user (
+    t_id number(10) references tournament (tournament_id),
+    p_id number(10) references users (user_id),
+    constraint team_user_pk primary key (t_id, p_id)
+);
+--
+create table tourny_to_user (
+    participant_id number(10) references users (user_id),
+    tourny_id number(10) references tournament (tournament_id),
+    constraint tourny_user_pk primary key (participant_id, tourny_id)
+);
 
 -------- Constraints --------
-alter table team_to_user
-add constraint fk_t_id foreign key (t_id)
-references team (team_id) on delete cascade;
-
-alter table team_to_user
-add constraint fk_p_id foreign key (p_id)
-references users (user_id) on delete cascade;
-
 alter table team
 add constraint fk_captain foreign key (captain)
 references users (user_id) on delete cascade;
@@ -98,14 +83,6 @@ alter table tournament
 add constraint fk_judge_id foreign key (judge_id)
 references users (user_id) on delete cascade;
 
-alter table tourny_to_round
-add constraint fk_tourny_id foreign key (tourny_id)
-references tournament (tournament_id) on delete cascade;
-
-alter table tourny_to_round
-add constraint fk_round_id foreign key (round_id)
-references round (round_id) on delete cascade;
-
 alter table round
 add constraint fk_player1 foreign key (player1)
 references users (user_id) on delete cascade;
@@ -117,14 +94,6 @@ references users (user_id) on delete cascade;
 alter table round
 add constraint fk_result foreign key (r_result)
 references results (result_id) on delete cascade;
-
-alter table tourny_to_user
-add constraint fk_participant_id foreign key (participant_id)
-references users (user_id) on delete cascade;
-
-alter table tourny_to_user
-add constraint fk_tourny_user_id foreign key (tourny_id)
-references tournament (tournament_id) on delete cascade;
 
 alter table results
 add constraint fk_win foreign key (win)
@@ -142,7 +111,4 @@ create sequence rounds_seq;
 create sequence team_pk_seq;
 create sequence users_pk_seq;
 create sequence round_pk_seq;
-create sequence team_user_pk_seq;
 create sequence result_pk_seq;
-create sequence tourny_user_pk_seq;
-create sequence tourny_round_pk_seq;
