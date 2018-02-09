@@ -21,12 +21,13 @@ conn trms2/p4ssw0rd;
 create sequence users_pk_seq;
 create table users
 (
-    id number(20) primary key,
+    user_id number(20) primary key,
     firstname varchar2(32),
     lastname varchar2(32),
     username varchar2(32) unique not null,
+    password varchar2(32) not null,
     email varchar2(32) unique not null
-)
+);
 
 create table tournament (
     tournament_id number(10) primary key,
