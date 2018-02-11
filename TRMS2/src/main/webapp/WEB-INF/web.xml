@@ -7,12 +7,12 @@
 	<welcome-file-list>
 		<welcome-file>/static/home.html</welcome-file>
 	</welcome-file-list>
-	<!-- <servlet>
+	<servlet>
 		<servlet-name>FrontController</servlet-name>
 		<servlet-class>com.revature.controller.FrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FrontController</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping> -->
+	</servlet-mapping>
 </web-app>
