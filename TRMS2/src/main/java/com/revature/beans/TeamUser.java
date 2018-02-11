@@ -8,44 +8,42 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tourny_to_user")
-//Not sure what should actually go in the ignore properties
-//@JsonIgnoreProperties(value={"participant_id", "tourny_id"})
-public class TournamentUser {
+@Table(name="team_to_user")
+public class TeamUser {
 	@EmbeddedId
-	private TournamentUserId id;
+	private TeamUserId id;
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="tourny_id", insertable=false, updatable=false)
-	private Tournament tournament;
+	@JoinColumn(name="t_id", insertable=false, updatable=false)
+	private Team team;
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="participant_id", insertable=false, updatable=false)
+	@JoinColumn(name="p_id", insertable=false, updatable=false)
 	private User user;
 	
-	public TournamentUser() {
+	public TeamUser() {
 		super();
 	}
 	
-	public TournamentUser(TournamentUserId id, Tournament tournament, User user) {
+	public TeamUser(TeamUserId id, Team team, User user) {
 		super();
 		this.id = id;
-		this.tournament = tournament;
+		this.team = team;
 		this.user = user;
 	}
 
-	public TournamentUserId getId() {
+	public TeamUserId getId() {
 		return id;
 	}
 
-	public void setId(TournamentUserId id) {
+	public void setId(TeamUserId id) {
 		this.id = id;
 	}
 
-	public Tournament getTournament() {
-		return tournament;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setTournament(Tournament tournament) {
-		this.tournament = tournament;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 	public User getUser() {
@@ -61,7 +59,7 @@ public class TournamentUser {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((tournament == null) ? 0 : tournament.hashCode());
+		result = prime * result + ((team == null) ? 0 : team.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -74,16 +72,16 @@ public class TournamentUser {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TournamentUser other = (TournamentUser) obj;
+		TeamUser other = (TeamUser) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (tournament == null) {
-			if (other.tournament != null)
+		if (team == null) {
+			if (other.team != null)
 				return false;
-		} else if (!tournament.equals(other.tournament))
+		} else if (!team.equals(other.team))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -95,8 +93,7 @@ public class TournamentUser {
 
 	@Override
 	public String toString() {
-		return "TournamentUser [id=" + id + ", tournament=" + tournament + ", user=" + user + "]";
+		return "TeamUser [id=" + id + ", team=" + team + ", user=" + user + "]";
 	}
-	
 	
 }
