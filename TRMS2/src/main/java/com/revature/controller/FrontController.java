@@ -29,7 +29,7 @@ public class FrontController extends DefaultServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String uri = req.getRequestURI().substring(req.getContextPath().length() + 1);
-        if (uri.startsWith("html/") || uri.startsWith("js/") || uri.startsWith("css/"))
+        if (uri.startsWith("static/"))
         {
             log.trace("Defaulting to the Apache built-in servlet...");
             super.doGet(req, resp);
