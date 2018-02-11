@@ -8,14 +8,15 @@
 		<property name="hibernate.connection.username">trms2</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-		
+
 		<!-- Hibernate Specific properties -->
 		<property name="show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		
+
 		<!-- Tell hibernate that we are mapping classes to objects -->
 		<!-- Annotations! -->
-		<!-- <mapping class="com.revature.beans.//Enter your bean name here//"></mapping> -->
-		
+		<!-- <mapping class="com.revature.beans.//Enter your bean name here//"/> -->
+		<mapping class="com.revature.beans.User" />
+
 	</session-factory>
 </hibernate-configuration>
