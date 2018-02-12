@@ -52,6 +52,12 @@ create table round (
     r_result number(10) not null
 );
 --
+create table tourny_to_round (
+    t_id number(10) references tournament (tournament_id),
+    r_id number(10) references round (round_id),
+    constraint tourny_round_pk primary key (t_id, r_id)
+);
+--
 create table results (
     result_id number(10) primary key,
     win number(10), -- player id of winner
