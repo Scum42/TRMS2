@@ -8,9 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.delegates.HomeDelegate;
-import com.revature.delegates.SimpleRedirectDelegate;
-
 public class Dispatcher
 {
     private List<Delegate> delegates = new ArrayList<>();
@@ -20,8 +17,6 @@ public class Dispatcher
         // This is just the self-contained place where delegates should be added.
         // Like: add(new SomeDelegate("uri"))
         
-        add(new SimpleRedirectDelegate("", "home"));
-        add(new HomeDelegate("home"));
     }
     
     // This method is only here for internal convenience; so you don't have to write
