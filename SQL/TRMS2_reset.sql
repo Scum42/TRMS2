@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @nbirchfield
- Sign out
- Unwatch 4
-  Star 0  Fork 0 libardia/TRMS2
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-Branch: master Find file Copy pathTRMS2/SQL/TRMS2_reset.sql
-c09bf71  15 hours ago
- nicholas birchfield Added tourny_to_round table in SQL script
-1 contributor
-RawBlameHistory     
-120 lines (106 sloc)  3.18 KB
 -- Remove the user to start fresh
 drop user trms2 cascade;
 
