@@ -21,8 +21,8 @@ public class FrontController extends DefaultServlet
     public void init() throws ServletException
     {
         // Init the dispatcher
-        d.init();
         super.init();
+        d.init();
     }
     
     @Override
