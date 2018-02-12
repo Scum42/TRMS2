@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,10 +12,12 @@ import javax.persistence.Table;
 @Table(name="Round")
 public class Round {
 	@Id
+	@Column(name="round_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Round")
 	@SequenceGenerator(name="Round", sequenceName="rounds_seq", allocationSize=1)
-	private int round_id;
-	private int round_num;
+	private int roundId;
+	@Column(name="round_num")
+	private int roundNum;
 	private int player1;
 	private int player2;
 	private int r_result;
@@ -25,27 +28,27 @@ public class Round {
 	
 	public Round(int round_id, int round_num, int player1, int player2, int r_result) {
 		super();
-		this.round_id = round_id;
-		this.round_num = round_num;
+		this.roundId = round_id;
+		this.roundNum = round_num;
 		this.player1 = player1;
 		this.player2 = player2;
 		this.r_result = r_result;
 	}
 
-	public int getRound_id() {
-		return round_id;
+	public int getRoundId() {
+		return roundId;
 	}
 
-	public void setRound_id(int round_id) {
-		this.round_id = round_id;
+	public void setRoundId(int roundId) {
+		this.roundId = roundId;
 	}
 
-	public int getRound_num() {
-		return round_num;
+	public int getRoundNum() {
+		return roundNum;
 	}
 
-	public void setRound_num(int round_num) {
-		this.round_num = round_num;
+	public void setRoundNum(int roundNum) {
+		this.roundNum = roundNum;
 	}
 
 	public int getPlayer1() {
@@ -79,8 +82,8 @@ public class Round {
 		result = prime * result + player1;
 		result = prime * result + player2;
 		result = prime * result + r_result;
-		result = prime * result + round_id;
-		result = prime * result + round_num;
+		result = prime * result + roundId;
+		result = prime * result + roundNum;
 		return result;
 	}
 
@@ -99,16 +102,16 @@ public class Round {
 			return false;
 		if (r_result != other.r_result)
 			return false;
-		if (round_id != other.round_id)
+		if (roundId != other.roundId)
 			return false;
-		if (round_num != other.round_num)
+		if (roundNum != other.roundNum)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Round [round_id=" + round_id + ", round_num=" + round_num + ", player1=" + player1 + ", player2="
+		return "Round [round_id=" + roundId + ", round_num=" + roundNum + ", player1=" + player1 + ", player2="
 				+ player2 + ", r_result=" + r_result + "]";
 	}
 	

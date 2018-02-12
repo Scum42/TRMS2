@@ -1,47 +1,49 @@
 package com.revature.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class TournamentRoundId {
+public class TournamentRoundId implements Serializable {
 	private static final long serivalVersionUID = 3L;
 	@Column(name="t_id")
-	private int t_id;
+	private int tId;
 	@Column(name="r_id")
-	private int r_id;
+	private int rId;
 	
 	public TournamentRoundId() {
 		super();
 	}
 	
 	public TournamentRoundId(int t_id, int r_id) {
-		this.r_id = r_id;
-		this.t_id = t_id;
+		this.rId = r_id;
+		this.tId = t_id;
 	}
 
-	public int getT_id() {
-		return t_id;
+	public int gettId() {
+		return tId;
 	}
 
-	public void setT_id(int t_id) {
-		this.t_id = t_id;
+	public void settId(int tId) {
+		this.tId = tId;
 	}
 
-	public int getR_id() {
-		return r_id;
+	public int getrId() {
+		return rId;
 	}
 
-	public void setR_id(int r_id) {
-		this.r_id = r_id;
+	public void setrId(int rId) {
+		this.rId = rId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + r_id;
-		result = prime * result + t_id;
+		result = prime * result + rId;
+		result = prime * result + tId;
 		return result;
 	}
 
@@ -54,16 +56,16 @@ public class TournamentRoundId {
 		if (getClass() != obj.getClass())
 			return false;
 		TournamentRoundId other = (TournamentRoundId) obj;
-		if (r_id != other.r_id)
+		if (rId != other.rId)
 			return false;
-		if (t_id != other.t_id)
+		if (tId != other.tId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TournamentRoundId [t_id=" + t_id + ", r_id=" + r_id + "]";
+		return "TournamentRoundId [t_id=" + tId + ", r_id=" + rId + "]";
 	}
 	
 }

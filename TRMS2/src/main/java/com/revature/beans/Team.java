@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,12 @@ import javax.persistence.Table;
 public class Team {
 	
 	@Id
+	@Column(name="team_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Team")
 	@SequenceGenerator(name="Team", sequenceName="team_pk_seq", allocationSize=1)
-	private int team_id;
-	private String team_name;
+	private int teamId;
+	@Column(name="team_name")
+	private String teamName;
 	private int captain;
 	
 	public Team () {
@@ -24,25 +27,27 @@ public class Team {
 	
 	public Team(int team_id, String team_name, int captain) {
 		super();
-		this.team_id = team_id;
-		this.team_name = team_name;
+		this.teamId = team_id;
+		this.teamName = team_name;
 		this.captain = captain;
 	}
 
-	public int getTeam_id() {
-		return team_id;
+
+
+	public int getTeamId() {
+		return teamId;
 	}
 
-	public void setTeam_id(int team_id) {
-		this.team_id = team_id;
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
 	}
 
-	public String getTeam_name() {
-		return team_name;
+	public String getTeamName() {
+		return teamName;
 	}
 
-	public void setTeam_name(String team_name) {
-		this.team_name = team_name;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 	public int getCaptain() {
@@ -58,8 +63,8 @@ public class Team {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + captain;
-		result = prime * result + team_id;
-		result = prime * result + ((team_name == null) ? 0 : team_name.hashCode());
+		result = prime * result + teamId;
+		result = prime * result + ((teamName == null) ? 0 : teamName.hashCode());
 		return result;
 	}
 
@@ -74,19 +79,19 @@ public class Team {
 		Team other = (Team) obj;
 		if (captain != other.captain)
 			return false;
-		if (team_id != other.team_id)
+		if (teamId != other.teamId)
 			return false;
-		if (team_name == null) {
-			if (other.team_name != null)
+		if (teamName == null) {
+			if (other.teamName != null)
 				return false;
-		} else if (!team_name.equals(other.team_name))
+		} else if (!teamName.equals(other.teamName))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Team [team_id=" + team_id + ", team_name=" + team_name + ", captain=" + captain + "]";
+		return "Team [team_id=" + teamId + ", team_name=" + teamName + ", captain=" + captain + "]";
 	}
 	
 }

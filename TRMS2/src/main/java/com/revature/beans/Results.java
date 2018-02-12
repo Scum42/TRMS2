@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +12,10 @@ import javax.persistence.Table;
 @Table(name="Results")
 public class Results {
 	@Id
+	@Column(name="result_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="results")
 	@SequenceGenerator(name="results", sequenceName="result_pk_seq", allocationSize=1)
-	private int result_id;
+	private int resultId;
 	private int win;
 	private int loss;
 	
@@ -23,17 +25,17 @@ public class Results {
 	
 	public Results(int result_id, int win, int loss) {
 		super();
-		this.result_id = result_id;
+		this.resultId = result_id;
 		this.win = win;
 		this.loss = loss;
 	}
 
-	public int getResult_id() {
-		return result_id;
+	public int getResultId() {
+		return resultId;
 	}
 
-	public void setResult_id(int result_id) {
-		this.result_id = result_id;
+	public void setResultId(int result_id) {
+		this.resultId = result_id;
 	}
 
 	public int getWin() {
@@ -57,7 +59,7 @@ public class Results {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + loss;
-		result = prime * result + result_id;
+		result = prime * result + resultId;
 		result = prime * result + win;
 		return result;
 	}
@@ -73,7 +75,7 @@ public class Results {
 		Results other = (Results) obj;
 		if (loss != other.loss)
 			return false;
-		if (result_id != other.result_id)
+		if (resultId != other.resultId)
 			return false;
 		if (win != other.win)
 			return false;
@@ -82,7 +84,7 @@ public class Results {
 
 	@Override
 	public String toString() {
-		return "Results [result_id=" + result_id + ", win=" + win + ", loss=" + loss + "]";
+		return "Results [result_id=" + resultId + ", win=" + win + ", loss=" + loss + "]";
 	}
 	
 }

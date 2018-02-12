@@ -9,9 +9,9 @@ import javax.persistence.Embeddable;
 public class TeamUserId implements Serializable {
 	private static final long serialVersionUID = 2L;
 	@Column(name="t_id")
-	private int t_id;
-	@Column(name="pid")
-	private int p_id;
+	private int teamId;
+	@Column(name="p_id")
+	private int playerId;
 	
 	public TeamUserId() {
 		super();
@@ -19,32 +19,32 @@ public class TeamUserId implements Serializable {
 	
 	public TeamUserId(int t_id, int p_id) {
 		super();
-		this.t_id = t_id;
-		this.p_id = p_id;
+		this.teamId = t_id;
+		this.playerId = p_id;
 	}
 
-	public int getT_id() {
-		return t_id;
+	public int getTeamId() {
+		return teamId;
 	}
 
-	public void setT_id(int t_id) {
-		this.t_id = t_id;
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
 	}
 
-	public int getP_id() {
-		return p_id;
+	public int getPlayerId() {
+		return playerId;
 	}
 
-	public void setP_id(int p_id) {
-		this.p_id = p_id;
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + p_id;
-		result = prime * result + t_id;
+		result = prime * result + playerId;
+		result = prime * result + teamId;
 		return result;
 	}
 
@@ -57,15 +57,15 @@ public class TeamUserId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		TeamUserId other = (TeamUserId) obj;
-		if (p_id != other.p_id)
+		if (playerId != other.playerId)
 			return false;
-		if (t_id != other.t_id)
+		if (teamId != other.teamId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TeamUserId [t_id=" + t_id + ", p_id=" + p_id + "]";
+		return "TeamUserId [t_id=" + teamId + ", p_id=" + playerId + "]";
 	}
 }

@@ -8,7 +8,7 @@ import com.revature.beans.User;
 
 public interface TeamUserDao {
 	
-	public int createTeamUser(TeamUser tu);
+	public TeamUser persistTeamUser(TeamUser tu);
 	
 	public void addMember(Team t, User u);
 	

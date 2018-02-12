@@ -10,7 +10,7 @@ public interface ResultsDao {
 	 * input: result -- Result object to be inserted
 	 * return: id of created Results
 	 */
-	public int createResults(Results result);
+	public Results persistResults(Results result);
 	
 	/*
 	 * returns Results object from database
@@ -18,7 +18,7 @@ public interface ResultsDao {
 	 * input: id -- identifier of Results object to get
 	 * return: Results object that matches id, else null
 	 */
-	public Results getResults(int id);
+	public Results loadResults(int id);
 	
 	/*
 	 * deletes Results object from dataabse
@@ -33,5 +33,5 @@ public interface ResultsDao {
 	 * 
 	 * input: result -- Results object to be updated
 	 */
-	public void updateResults(Results result);
+	public Results merge(Results result);
 }
