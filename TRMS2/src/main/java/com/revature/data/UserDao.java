@@ -8,13 +8,13 @@ import com.revature.beans.User;
 
 public interface UserDao {
 
-	public int createUser(User u);
+	public User persistUser(User u);
 	
-	public User getUser(int id);
+	public User loadUser(int id);
 	
-	public User getUserByUsername(String un);
+	public User loadUserByUsername(String un);
 	
-	public void updateUser(User u);
+	public User mergeUser(User u);
 	
 	public void deleteUser(User u);
 }

@@ -2,9 +2,12 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,18 +21,24 @@ public class Round {
 	private int roundId;
 	@Column(name="round_num")
 	private int roundNum;
-	private int player1;
-	private int player2;
-	private int r_result;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id")
+	private User player1;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id")
+	private User player2;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="result_id")
+	private Results r_result;
 	
 	public Round() {
 		super();
 	}
-	
-	public Round(int round_id, int round_num, int player1, int player2, int r_result) {
+
+	public Round(int roundId, int roundNum, User player1, User player2, Results r_result) {
 		super();
-		this.roundId = round_id;
-		this.roundNum = round_num;
+		this.roundId = roundId;
+		this.roundNum = roundNum;
 		this.player1 = player1;
 		this.player2 = player2;
 		this.r_result = r_result;
@@ -51,27 +60,27 @@ public class Round {
 		this.roundNum = roundNum;
 	}
 
-	public int getPlayer1() {
+	public User getPlayer1() {
 		return player1;
 	}
 
-	public void setPlayer1(int player1) {
+	public void setPlayer1(User player1) {
 		this.player1 = player1;
 	}
 
-	public int getPlayer2() {
+	public User getPlayer2() {
 		return player2;
 	}
 
-	public void setPlayer2(int player2) {
+	public void setPlayer2(User player2) {
 		this.player2 = player2;
 	}
 
-	public int getR_result() {
+	public Results getR_result() {
 		return r_result;
 	}
 
-	public void setR_result(int r_result) {
+	public void setR_result(Results r_result) {
 		this.r_result = r_result;
 	}
 
@@ -79,9 +88,9 @@ public class Round {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + player1;
-		result = prime * result + player2;
-		result = prime * result + r_result;
+		result = prime * result + ((player1 == null) ? 0 : player1.hashCode());
+		result = prime * result + ((player2 == null) ? 0 : player2.hashCode());
+		result = prime * result + ((r_result == null) ? 0 : r_result.hashCode());
 		result = prime * result + roundId;
 		result = prime * result + roundNum;
 		return result;
@@ -96,11 +105,20 @@ public class Round {
 		if (getClass() != obj.getClass())
 			return false;
 		Round other = (Round) obj;
-		if (player1 != other.player1)
+		if (player1 == null) {
+			if (other.player1 != null)
+				return false;
+		} else if (!player1.equals(other.player1))
 			return false;
-		if (player2 != other.player2)
+		if (player2 == null) {
+			if (other.player2 != null)
+				return false;
+		} else if (!player2.equals(other.player2))
 			return false;
-		if (r_result != other.r_result)
+		if (r_result == null) {
+			if (other.r_result != null)
+				return false;
+		} else if (!r_result.equals(other.r_result))
 			return false;
 		if (roundId != other.roundId)
 			return false;
@@ -111,8 +129,8 @@ public class Round {
 
 	@Override
 	public String toString() {
-		return "Round [round_id=" + roundId + ", round_num=" + roundNum + ", player1=" + player1 + ", player2="
-				+ player2 + ", r_result=" + r_result + "]";
+		return "Round [roundId=" + roundId + ", roundNum=" + roundNum + ", player1=" + player1 + ", player2=" + player2
+				+ ", r_result=" + r_result + "]";
 	}
 	
 }

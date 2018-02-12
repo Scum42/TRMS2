@@ -30,8 +30,7 @@ create table users
 --
 create table team (
     team_id number(10) primary key,
-    team_name varchar2(256) unique not null,
-    captain number(10) not null
+    team_name varchar2(256) unique not null
 );
 --
 create table tournament (
@@ -118,15 +117,3 @@ create sequence team_pk_seq;
 create sequence users_pk_seq;
 create sequence round_pk_seq;
 create sequence result_pk_seq;
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
