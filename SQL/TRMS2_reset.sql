@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @nbirchfield
+ Sign out
+ Unwatch 4
+  Star 0  Fork 0 libardia/TRMS2
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
+Branch: master Find file Copy pathTRMS2/SQL/TRMS2_reset.sql
+c09bf71  15 hours ago
+ nicholas birchfield Added tourny_to_round table in SQL script
+1 contributor
+RawBlameHistory     
+120 lines (106 sloc)  3.18 KB
 -- Remove the user to start fresh
 drop user trms2 cascade;
 
@@ -50,6 +68,12 @@ create table round (
     player1 number(10) not null,
     player2 number(10) not null,
     r_result number(10) not null
+);
+--
+create table tourny_to_round (
+    t_id number(10) references tournament (tournament_id),
+    r_id number(10) references round (round_id),
+    constraint tourny_round_pk primary key (t_id, r_id)
 );
 --
 create table results (
@@ -112,3 +136,15 @@ create sequence team_pk_seq;
 create sequence users_pk_seq;
 create sequence round_pk_seq;
 create sequence result_pk_seq;
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
