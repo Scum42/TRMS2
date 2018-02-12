@@ -1,10 +1,12 @@
 package com.revature.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class TournamentRoundId {
+public class TournamentRoundId implements Serializable {
 	private static final long serivalVersionUID = 3L;
 	@Column(name="t_id")
 	private int t_id;
