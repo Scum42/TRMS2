@@ -3,10 +3,6 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<display-name>TRMS2</display-name>
-	<welcome-file-list>
-		<welcome-file>/static/home.html</welcome-file>
-	</welcome-file-list>
 	<servlet>
 		<servlet-name>FrontController</servlet-name>
 		<servlet-class>com.revature.controller.FrontController</servlet-class>
