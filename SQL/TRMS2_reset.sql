@@ -118,3 +118,15 @@ create sequence team_pk_seq;
 create sequence users_pk_seq;
 create sequence round_pk_seq;
 create sequence result_pk_seq;
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
