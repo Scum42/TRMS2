@@ -1,55 +1,83 @@
 package com.revature.beans;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Tournament")
+@Table(name = "Tournament")
 public class Tournament {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="address")
-	@SequenceGenerator(name="Tournament", sequenceName="tournyid_seq", allocationSize=1)
-	private int tournament_id;
-	private String tourny_type;
+	@Column(name = "tournament_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Tournament")
+	@SequenceGenerator(name = "Tournament", sequenceName = "tournyid_seq", allocationSize = 1)
+	private int tournamentId;
+	@Column(name = "tourny_type")
+	private String tournyType;
 	private String style;
-	private int owner_id;
-	private int judge_id;
-	private int min_num;
-	private int max_num;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "owner_id")
+	private User owner;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "judge_id")
+	private User judge;
+	@Column(name = "min_num")
+	private int minNum;
+	@Column(name = "max_num")
+	private int maxNum;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "tourny_to_user", joinColumns = @JoinColumn(name = "tournament_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> registeredUsers;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "t_id")
+	private List<Round> tournyRounds;
+
 	public Tournament() {
 		super();
 	}
-	
-	public Tournament(int tournament_id, String tourny_type, String style, int owner_id, int judge_id, int min_num, int max_num) {
+
+	public Tournament(int tournamentId, String tournyType, String style, User owner, User judge, int minNum, int maxNum,
+			List<User> registeredUsers, List<Round> tournyRounds) {
 		super();
-		this.tournament_id = tournament_id;
-		this.tourny_type = tourny_type;
+		this.tournamentId = tournamentId;
+		this.tournyType = tournyType;
 		this.style = style;
-		this.owner_id = owner_id;
-		this.judge_id = judge_id;
-		this.min_num = min_num;
-		this.max_num = max_num;
+		this.owner = owner;
+		this.judge = judge;
+		this.minNum = minNum;
+		this.maxNum = maxNum;
+		this.registeredUsers = registeredUsers;
+		this.tournyRounds = tournyRounds;
 	}
 
-	public int getTournament_id() {
-		return tournament_id;
+	public int getTournamentId() {
+		return tournamentId;
 	}
 
-	public void setTournament_id(int tournament_id) {
-		this.tournament_id = tournament_id;
+	public void setTournamentId(int tournamentId) {
+		this.tournamentId = tournamentId;
 	}
 
-	public String getTourny_type() {
-		return tourny_type;
+	public String getTournyType() {
+		return tournyType;
 	}
 
-	public void setTourny_type(String tourny_type) {
-		this.tourny_type = tourny_type;
+	public void setTournyType(String tournyType) {
+		this.tournyType = tournyType;
 	}
 
 	public String getStyle() {
@@ -60,49 +88,67 @@ public class Tournament {
 		this.style = style;
 	}
 
-	public int getOwner_id() {
-		return owner_id;
+	public User getOwnerId() {
+		return owner;
 	}
 
-	public void setOwner_id(int owner_id) {
-		this.owner_id = owner_id;
+	public void setOwnerId(User ownerId) {
+		this.owner = ownerId;
 	}
 
-	public int getJudge_id() {
-		return judge_id;
+	public User getJudgeId() {
+		return judge;
 	}
 
-	public void setJudge_id(int judge_id) {
-		this.judge_id = judge_id;
+	public void setJudgeId(User judgeId) {
+		this.judge = judgeId;
 	}
 
-	public int getMin_num() {
-		return min_num;
+	public int getMinNum() {
+		return minNum;
 	}
 
-	public void setMin_num(int min_num) {
-		this.min_num = min_num;
+	public void setMinNum(int minNum) {
+		this.minNum = minNum;
 	}
 
-	public int getMax_num() {
-		return max_num;
+	public int getMaxNum() {
+		return maxNum;
 	}
 
-	public void setMax_num(int max_num) {
-		this.max_num = max_num;
+	public void setMaxNum(int maxNum) {
+		this.maxNum = maxNum;
+	}
+
+	public List<User> getRegisteredUsers() {
+		return registeredUsers;
+	}
+
+	public void setRegisteredUsers(List<User> registeredUsers) {
+		this.registeredUsers = registeredUsers;
+	}
+
+	public List<Round> getTournyRounds() {
+		return tournyRounds;
+	}
+
+	public void setTournyRounds(List<Round> tournyRounds) {
+		this.tournyRounds = tournyRounds;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + judge_id;
-		result = prime * result + max_num;
-		result = prime * result + min_num;
-		result = prime * result + owner_id;
+		result = prime * result + ((judge == null) ? 0 : judge.hashCode());
+		result = prime * result + maxNum;
+		result = prime * result + minNum;
+		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
+		result = prime * result + ((registeredUsers == null) ? 0 : registeredUsers.hashCode());
 		result = prime * result + ((style == null) ? 0 : style.hashCode());
-		result = prime * result + tournament_id;
-		result = prime * result + ((tourny_type == null) ? 0 : tourny_type.hashCode());
+		result = prime * result + tournamentId;
+		result = prime * result + ((tournyRounds == null) ? 0 : tournyRounds.hashCode());
+		result = prime * result + ((tournyType == null) ? 0 : tournyType.hashCode());
 		return result;
 	}
 
@@ -115,33 +161,49 @@ public class Tournament {
 		if (getClass() != obj.getClass())
 			return false;
 		Tournament other = (Tournament) obj;
-		if (judge_id != other.judge_id)
+		if (judge == null) {
+			if (other.judge != null)
+				return false;
+		} else if (!judge.equals(other.judge))
 			return false;
-		if (max_num != other.max_num)
+		if (maxNum != other.maxNum)
 			return false;
-		if (min_num != other.min_num)
+		if (minNum != other.minNum)
 			return false;
-		if (owner_id != other.owner_id)
+		if (owner == null) {
+			if (other.owner != null)
+				return false;
+		} else if (!owner.equals(other.owner))
+			return false;
+		if (registeredUsers == null) {
+			if (other.registeredUsers != null)
+				return false;
+		} else if (!registeredUsers.equals(other.registeredUsers))
 			return false;
 		if (style == null) {
 			if (other.style != null)
 				return false;
 		} else if (!style.equals(other.style))
 			return false;
-		if (tournament_id != other.tournament_id)
+		if (tournamentId != other.tournamentId)
 			return false;
-		if (tourny_type == null) {
-			if (other.tourny_type != null)
+		if (tournyRounds == null) {
+			if (other.tournyRounds != null)
 				return false;
-		} else if (!tourny_type.equals(other.tourny_type))
+		} else if (!tournyRounds.equals(other.tournyRounds))
+			return false;
+		if (tournyType == null) {
+			if (other.tournyType != null)
+				return false;
+		} else if (!tournyType.equals(other.tournyType))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Tournament [tournament_id=" + tournament_id + ", tourny_type=" + tourny_type + ", style=" + style
-				+ ", owner_id=" + owner_id + ", judge_id=" + judge_id + ", min_num=" + min_num + ", max_num=" + max_num
-				+ "]";
+		return "Tournament [tournamentId=" + tournamentId + ", tournyType=" + tournyType + ", style=" + style
+				+ ", ownerId=" + owner + ", judgeId=" + judge + ", minNum=" + minNum + ", maxNum=" + maxNum
+				+ ", registeredUsers=" + registeredUsers + ", tournyRounds=" + tournyRounds + "]";
 	}
 }

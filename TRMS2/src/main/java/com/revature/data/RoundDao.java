@@ -8,15 +8,15 @@ import com.revature.beans.User;
 
 public interface RoundDao {
 	
-	public int createRound(Round round);
+	public Round persistRound(Round round);
 	
-	public Round getRound(int id);
+	public Round loadRound(int id);
 	
-	public Set<Round> getRoundsByTournament(Tournament tournament);
+	public Set<Round> loadRoundsByTournament(Tournament tournament);
 	
-	public Set<Round> getRoundsByPlayer(User user);
+	public Set<Round> loadRoundsByPlayer(User user);
 	
 	public void deleteRound(Round round);
 	
-	public void updateRound(Round round);
+	public Round mergeRound(Round round);
 }

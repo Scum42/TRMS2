@@ -1,64 +1,73 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Results")
+@Table(name = "Results")
 public class Results {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="results")
-	@SequenceGenerator(name="results", sequenceName="result_pk_seq", allocationSize=1)
-	private int result_id;
-	private int win;
-	private int loss;
-	
+	@Column(name = "result_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "results")
+	@SequenceGenerator(name = "results", sequenceName = "result_pk_seq", allocationSize = 1)
+	private int resultId;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User winner;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User loser;
+
 	public Results() {
 		super();
 	}
-	
-	public Results(int result_id, int win, int loss) {
+
+	public Results(int resultId, User winner, User loser) {
 		super();
-		this.result_id = result_id;
-		this.win = win;
-		this.loss = loss;
+		this.resultId = resultId;
+		this.winner = winner;
+		this.loser = loser;
 	}
 
-	public int getResult_id() {
-		return result_id;
+	public int getResultId() {
+		return resultId;
 	}
 
-	public void setResult_id(int result_id) {
-		this.result_id = result_id;
+	public void setResultId(int resultId) {
+		this.resultId = resultId;
 	}
 
-	public int getWin() {
-		return win;
+	public User getWinner() {
+		return winner;
 	}
 
-	public void setWin(int win) {
-		this.win = win;
+	public void setWinner(User winner) {
+		this.winner = winner;
 	}
 
-	public int getLoss() {
-		return loss;
+	public User getLoser() {
+		return loser;
 	}
 
-	public void setLoss(int loss) {
-		this.loss = loss;
+	public void setLoser(User loser) {
+		this.loser = loser;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + loss;
-		result = prime * result + result_id;
-		result = prime * result + win;
+		result = prime * result + ((loser == null) ? 0 : loser.hashCode());
+		result = prime * result + resultId;
+		result = prime * result + ((winner == null) ? 0 : winner.hashCode());
 		return result;
 	}
 
@@ -71,18 +80,23 @@ public class Results {
 		if (getClass() != obj.getClass())
 			return false;
 		Results other = (Results) obj;
-		if (loss != other.loss)
+		if (loser == null) {
+			if (other.loser != null)
+				return false;
+		} else if (!loser.equals(other.loser))
 			return false;
-		if (result_id != other.result_id)
+		if (resultId != other.resultId)
 			return false;
-		if (win != other.win)
+		if (winner == null) {
+			if (other.winner != null)
+				return false;
+		} else if (!winner.equals(other.winner))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Results [result_id=" + result_id + ", win=" + win + ", loss=" + loss + "]";
+		return "Results [resultId=" + resultId + ", winner=" + winner + ", loser=" + loser + "]";
 	}
-	
 }

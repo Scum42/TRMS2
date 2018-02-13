@@ -4,12 +4,12 @@ import com.revature.beans.Team;
 
 public interface TeamDao {
 	
-	public int createTeam(Team t);
+	public Team persistTeam(Team t);
 	
-	public Team getTeam(int id);
+	public Team loadTeam(int id);
 	
 	public void deleteTeam(Team t);
 	
-	public void updateTeam(Team t);
+	public Team mergeTeam(Team t);
 
 }
