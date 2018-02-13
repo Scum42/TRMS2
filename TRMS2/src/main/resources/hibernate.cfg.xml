@@ -4,7 +4,8 @@
 	<session-factory>
 		<!-- Configure our database -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@mydatabase.cbniiqyg9ewq.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+		<!-- Note to Self: This was changed from the project's db to local db -->
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="hibernate.connection.username">trms2</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
