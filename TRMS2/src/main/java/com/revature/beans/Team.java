@@ -33,10 +33,10 @@ public class Team {
 		super();
 	}
 
-	public Team(int team_id, String team_name) {
+	public Team(int teamId, String teamName) {
 		super();
-		this.teamId = team_id;
-		this.teamName = team_name;
+		this.teamId = teamId;
+		this.teamName = teamName;
 	}
 
 	public int getTeamId() {

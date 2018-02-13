@@ -12,36 +12,36 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Round")
+@Table(name = "Round")
 public class Round {
 	@Id
-	@Column(name="round_id")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Round")
-	@SequenceGenerator(name="Round", sequenceName="rounds_seq", allocationSize=1)
+	@Column(name = "round_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Round")
+	@SequenceGenerator(name = "Round", sequenceName = "rounds_seq", allocationSize = 1)
 	private int roundId;
-	@Column(name="round_num")
+	@Column(name = "round_num")
 	private int roundNum;
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
 	private User player1;
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
 	private User player2;
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="result_id")
-	private Results r_result;
-	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "result_id")
+	private Results roundResult;
+
 	public Round() {
 		super();
 	}
 
-	public Round(int roundId, int roundNum, User player1, User player2, Results r_result) {
+	public Round(int roundId, int roundNum, User player1, User player2, Results roundResult) {
 		super();
 		this.roundId = roundId;
 		this.roundNum = roundNum;
 		this.player1 = player1;
 		this.player2 = player2;
-		this.r_result = r_result;
+		this.roundResult = roundResult;
 	}
 
 	public int getRoundId() {
@@ -76,12 +76,12 @@ public class Round {
 		this.player2 = player2;
 	}
 
-	public Results getR_result() {
-		return r_result;
+	public Results getRoundResult() {
+		return roundResult;
 	}
 
-	public void setR_result(Results r_result) {
-		this.r_result = r_result;
+	public void setRoundResult(Results roundResult) {
+		this.roundResult = roundResult;
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class Round {
 		int result = 1;
 		result = prime * result + ((player1 == null) ? 0 : player1.hashCode());
 		result = prime * result + ((player2 == null) ? 0 : player2.hashCode());
-		result = prime * result + ((r_result == null) ? 0 : r_result.hashCode());
+		result = prime * result + ((roundResult == null) ? 0 : roundResult.hashCode());
 		result = prime * result + roundId;
 		result = prime * result + roundNum;
 		return result;
@@ -115,10 +115,10 @@ public class Round {
 				return false;
 		} else if (!player2.equals(other.player2))
 			return false;
-		if (r_result == null) {
-			if (other.r_result != null)
+		if (roundResult == null) {
+			if (other.roundResult != null)
 				return false;
-		} else if (!r_result.equals(other.r_result))
+		} else if (!roundResult.equals(other.roundResult))
 			return false;
 		if (roundId != other.roundId)
 			return false;
@@ -130,7 +130,7 @@ public class Round {
 	@Override
 	public String toString() {
 		return "Round [roundId=" + roundId + ", roundNum=" + roundNum + ", player1=" + player1 + ", player2=" + player2
-				+ ", r_result=" + r_result + "]";
+				+ ", roundResult=" + roundResult + "]";
 	}
-	
+
 }
