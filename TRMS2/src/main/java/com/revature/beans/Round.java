@@ -28,7 +28,7 @@ public class Round {
 	@JoinColumn(name = "player2")
 	private User player2;
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "result_id")
+	@JoinColumn(name = "r_result")
 	private Results roundResult;
 
 	public Round() {
