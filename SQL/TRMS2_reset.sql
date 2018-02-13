@@ -18,8 +18,7 @@ grant create view to trms2;
 -- Connect to the user we just made
 conn trms2/p4ssw0rd;
 
-create table users
-(
+create table users (
     user_id number(20) primary key,
     firstname varchar2(32),
     lastname varchar2(32),
@@ -76,10 +75,6 @@ create table tourny_to_user (
 );
 
 -------- Constraints --------
-alter table team
-add constraint fk_captain foreign key (captain)
-references users (user_id) on delete cascade;
-
 alter table tournament
 add constraint fk_owner_id foreign key (owner_id)
 references users (user_id) on delete cascade;
