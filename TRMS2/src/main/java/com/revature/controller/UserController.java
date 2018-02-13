@@ -1,6 +1,5 @@
 package com.revature.controller;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,9 +14,8 @@ import com.revature.util.HibernateUtil;
 
 @Controller
 @RequestMapping(value = "/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
 public class UserController {
-	private static Logger log = Logger.getLogger(UserController.class);
 	private static HibernateUtil hu = HibernateUtil.getInstance();
 	private static ObjectMapper om = new ObjectMapper();
 
