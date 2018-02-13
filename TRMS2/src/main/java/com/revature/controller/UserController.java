@@ -25,7 +25,7 @@ public class UserController {
 	@ResponseBody
 	public String getUser() throws JsonProcessingException {
 		Session s = hu.getSession();
-		User u = (User) s.get(User.class, 1);
+		User u = (User) s.get(User.class, 1); //This would be getting the first user in TONY's local repository
 		return om.writeValueAsString(u);
 	}
 }

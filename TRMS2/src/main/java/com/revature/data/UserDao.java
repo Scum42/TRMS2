@@ -6,9 +6,9 @@ public interface UserDao {
 
 	public User persistUser(User u);
 
-	public User loadUser(int id);
+	public User getUser(int id);
 
-	public User loadUserByUsername(String un);
+	public User getUserByUsername(String un);
 
 	public User mergeUser(User u);
 

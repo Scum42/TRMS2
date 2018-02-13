@@ -6,9 +6,11 @@ import com.revature.beans.Tournament;
 import com.revature.beans.User;
 
 public interface TournamentDao {
-	
+	//CRUD
+	//Create
 	public Tournament persistTournament(Tournament tournament);
 	
+	//Read
 	public Tournament loadTournament(int id);
 	
 	public List<Tournament> loadTournamentsByOwner(User user);
@@ -17,7 +19,9 @@ public interface TournamentDao {
 	
 	public List<Tournament> loadTournamentsByPlayer(User user);
 	
-	public void deleteTournament(Tournament tournament);
-	
+	//Update
 	public void mergeTournament(Tournament tournament);
+	
+	//Delete
+	public void deleteTournament(Tournament tournament);
 }

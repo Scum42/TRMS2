@@ -1,0 +1,222 @@
+2018-02-12 22:34:44 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-12 22:34:51 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-12 22:34:51 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-12 22:34:55 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-12 22:34:57 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-12 22:37:38 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-12 22:37:39 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-12 22:37:39 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-12 22:37:42 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-12 22:37:43 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-12 22:37:44 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-12 22:37:44 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-12 22:37:44 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-12 22:37:44 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-12 22:37:50 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-12 22:38:00 WARN  TournamentHibernate:27 - The owner is: [User: id=0, firstname=John, lastname=Ocon, username=jocon, password=123]
+2018-02-12 22:38:01 WARN  TournamentHibernate:29 - Created bear will have an id of 1
+2018-02-12 22:38:01 WARN  TournamentHibernate:30 - The owner is: [User: id=1, firstname=John, lastname=Ocon, username=jocon, password=123]
+2018-02-12 22:38:01 WARN  SqlExceptionHelper:129 - SQL Error: 1400, SQLState: 23000
+2018-02-12 22:38:01 ERROR SqlExceptionHelper:131 - ORA-01400: cannot insert NULL into ("TRMS2"."USERS"."EMAIL")
+
+2018-02-12 22:38:01 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-12 22:38:01 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-12 22:38:01 WARN  TournamentHibernate:61 - The tournament is: Tournament [tournamentId=0, tournyType=Basketball, style=Bracket, ownerId=[User: id=1, firstname=John, lastname=Ocon, username=jocon, password=123], judgeId=[User: id=1, firstname=John, lastname=Ocon, username=jocon, password=123], minNum=2, maxNum=16, registeredUsers=null, tournyRounds=null]
+2018-02-12 22:38:01 WARN  TournamentHibernate:63 - The bear is: Tournament [tournamentId=1, tournyType=Basketball, style=Bracket, ownerId=[User: id=1, firstname=John, lastname=Ocon, username=jocon, password=123], judgeId=[User: id=1, firstname=John, lastname=Ocon, username=jocon, password=123], minNum=2, maxNum=16, registeredUsers=null, tournyRounds=null]
+2018-02-12 22:38:01 WARN  SqlExceptionHelper:129 - SQL Error: 2291, SQLState: 23000
+2018-02-12 22:38:01 ERROR SqlExceptionHelper:131 - ORA-02291: integrity constraint (TRMS2.FK_JUDGE_ID) violated - parent key not found
+
+2018-02-12 22:38:01 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-12 22:38:01 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-12 22:53:26 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-12 22:53:33 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-12 22:53:33 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-12 22:53:39 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-12 22:53:42 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-12 22:53:44 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-12 22:53:44 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-12 22:53:44 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-12 22:53:44 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-12 22:53:52 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-12 22:54:12 WARN  TournamentHibernate:27 - The owner is: [User: id=0, firstname=John, lastname=Ocon, username=jocon, password=123]
+2018-02-12 22:54:14 WARN  TournamentHibernate:29 - Created owner will have an id of 2
+2018-02-12 22:54:14 WARN  TournamentHibernate:30 - The owner is: [User: id=2, firstname=John, lastname=Ocon, username=jocon, password=123]
+2018-02-12 22:54:14 WARN  TournamentHibernate:61 - The tournament is: Tournament [tournamentId=0, tournyType=Basketball, style=Bracket, ownerId=[User: id=2, firstname=John, lastname=Ocon, username=jocon, password=123], judgeId=[User: id=2, firstname=John, lastname=Ocon, username=jocon, password=123], minNum=2, maxNum=16, registeredUsers=null, tournyRounds=null]
+2018-02-12 22:54:14 WARN  TournamentHibernate:63 - The bear is: Tournament [tournamentId=2, tournyType=Basketball, style=Bracket, ownerId=[User: id=2, firstname=John, lastname=Ocon, username=jocon, password=123], judgeId=[User: id=2, firstname=John, lastname=Ocon, username=jocon, password=123], minNum=2, maxNum=16, registeredUsers=null, tournyRounds=null]
+2018-02-13 11:03:43 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:03:45 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:03:45 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:03:48 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:03:49 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:03:51 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:03:51 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:03:51 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:03:51 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:03:59 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:06:39 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:06:40 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:06:40 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:06:41 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:06:42 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:06:43 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:06:43 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:06:43 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:06:43 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:06:46 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:06:52 INFO  UserHibernate:77 - The updated user is: [User: id=2, firstname=John, lastname=BillyBob, username=jocon, password=123]
+2018-02-13 11:13:18 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:13:20 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:13:20 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:13:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:13:24 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:13:25 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:13:25 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:13:25 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:13:25 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:13:35 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:17:03 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:17:14 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:17:14 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:17:25 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:17:33 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:17:37 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:17:37 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:17:37 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:17:37 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:17:46 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:21:07 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:21:09 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:21:10 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:21:12 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:21:13 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:21:14 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:21:14 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:21:14 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:21:14 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:21:17 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:33:23 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:33:25 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:33:25 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:33:27 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:33:28 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:33:29 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:33:29 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:33:29 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:33:29 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:33:37 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 11:33:46 WARN  SqlExceptionHelper:129 - SQL Error: 904, SQLState: 42000
+2018-02-13 11:33:46 ERROR SqlExceptionHelper:131 - ORA-00904: "USER_ID": invalid identifier
+
+2018-02-13 11:33:46 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 11:33:46 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.SQLGrammarException: could not execute statement]
+2018-02-13 11:40:39 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 11:40:41 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 11:40:41 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 11:40:44 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 11:40:44 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 11:40:45 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 11:40:45 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 11:40:45 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 11:40:45 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 11:40:49 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:36:28 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:36:34 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:36:34 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:36:38 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:36:39 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:36:43 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:36:43 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:36:43 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:36:43 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:36:51 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:37:02 WARN  UserHibernate:50 - The owner is: [User: id=0, firstname=Jack, lastname=Son, username=json, password=123]
+2018-02-13 12:37:05 WARN  UserHibernate:52 - Created owner will have an id of 21
+2018-02-13 12:37:05 WARN  UserHibernate:53 - The owner is: [User: id=21, firstname=Jack, lastname=Son, username=json, password=123]
+2018-02-13 12:37:06 WARN  SqlExceptionHelper:129 - SQL Error: 1400, SQLState: 23000
+2018-02-13 12:37:06 ERROR SqlExceptionHelper:131 - ORA-01400: cannot insert NULL into ("TRMS2"."USERS"."EMAIL")
+
+2018-02-13 12:37:06 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 12:37:06 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-13 12:37:06 WARN  UserHibernate:50 - The owner is: [User: id=0, firstname=John, lastname=Nathan, username=jnathan, password=123]
+2018-02-13 12:37:06 WARN  UserHibernate:52 - Created owner will have an id of 22
+2018-02-13 12:37:06 WARN  UserHibernate:53 - The owner is: [User: id=22, firstname=John, lastname=Nathan, username=jnathan, password=123]
+2018-02-13 12:37:06 WARN  SqlExceptionHelper:129 - SQL Error: 1400, SQLState: 23000
+2018-02-13 12:37:06 ERROR SqlExceptionHelper:131 - ORA-01400: cannot insert NULL into ("TRMS2"."USERS"."EMAIL")
+
+2018-02-13 12:37:06 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 12:37:06 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-13 12:37:06 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:38:13 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:38:14 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:38:14 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:38:16 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:38:17 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:38:17 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:38:17 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:38:17 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:38:17 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:38:21 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:38:27 WARN  UserHibernate:52 - The owner is: [User: id=0, firstname=Jack, lastname=Son, username=json, password=123]
+2018-02-13 12:38:27 WARN  UserHibernate:54 - Created owner will have an id of 23
+2018-02-13 12:38:27 WARN  UserHibernate:55 - The owner is: [User: id=23, firstname=Jack, lastname=Son, username=json, password=123]
+2018-02-13 12:38:27 WARN  UserHibernate:52 - The owner is: [User: id=0, firstname=John, lastname=Nathan, username=jnathan, password=123]
+2018-02-13 12:38:27 WARN  UserHibernate:54 - Created owner will have an id of 24
+2018-02-13 12:38:27 WARN  UserHibernate:55 - The owner is: [User: id=24, firstname=John, lastname=Nathan, username=jnathan, password=123]
+2018-02-13 12:38:27 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:40:42 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:40:43 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:40:43 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:40:45 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:40:45 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:40:46 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:40:46 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:40:46 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:40:46 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:40:49 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:40:55 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:42:00 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:42:01 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:42:01 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:42:02 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:42:03 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:42:03 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:42:03 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:42:03 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:42:03 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:42:06 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:42:12 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:43:02 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:43:03 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:43:03 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:43:04 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:43:05 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:43:06 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:43:06 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:43:06 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:43:06 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:43:09 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:43:15 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:43:16 TRACE UserHibernate:87 - List was: []
+2018-02-13 12:43:57 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 12:43:58 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 12:43:58 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 12:44:00 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 12:44:01 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 12:44:01 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 12:44:01 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 12:44:01 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 12:44:01 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 12:44:04 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 12:44:10 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 12:44:11 TRACE UserHibernate:87 - List was: []
+2018-02-13 13:08:59 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 13:09:02 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 13:09:02 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 13:09:07 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 13:09:09 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 13:09:10 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 13:09:10 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 13:09:10 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 13:09:10 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 13:09:15 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 13:09:27 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
