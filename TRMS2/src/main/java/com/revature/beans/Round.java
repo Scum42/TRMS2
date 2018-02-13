@@ -22,10 +22,10 @@ public class Round {
 	@Column(name = "round_num")
 	private int roundNum;
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "player1")
 	private User player1;
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "player2")
 	private User player2;
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "result_id")
