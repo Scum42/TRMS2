@@ -20,10 +20,10 @@ public class Results {
 	@SequenceGenerator(name = "results", sequenceName = "result_pk_seq", allocationSize = 1)
 	private int resultId;
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "win")
 	private User winner;
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "loss")
 	private User loser;
 
 	public Results() {
