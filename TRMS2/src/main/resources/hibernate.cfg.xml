@@ -20,9 +20,6 @@
 		<mapping class="com.revature.beans.Results"/>
 		<mapping class="com.revature.beans.Round"/>
 		<mapping class="com.revature.beans.Team"/>
-		<mapping class="com.revature.beans.TeamUser"/>
 		<mapping class="com.revature.beans.Tournament"/>
-		<mapping class="com.revature.beans.TournamentRound"/>
-		<mapping class="com.revature.beans.TournamentUser"/>
 	</session-factory>
 </hibernate-configuration>
