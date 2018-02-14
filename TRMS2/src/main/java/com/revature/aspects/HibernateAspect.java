@@ -30,7 +30,6 @@ public class HibernateAspect {
 
 	@Around("allDaoObjections()")
 	public Object manageSession(ProceedingJoinPoint pjp) throws Throwable {
-		log.debug("Hello, World from HibernateAspect");
 		Object pjpReturn = null;
 
 		Session session = hu.getSession();
