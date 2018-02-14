@@ -25,17 +25,26 @@ public class LoginController {
 	private static ObjectMapper om = new ObjectMapper();
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST, headers = "Accept=application/json, text/plain")
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public String login(@RequestBody User u) throws JsonProcessingException {
+	public String login(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
 		Session session = hu.getSession();
 		Criteria cri = session.createCriteria(User.class);
-		log.trace(u.getUsername());
+		log.trace(u);
 		cri.add(Restrictions.eq("username", u.getUsername()));
+		String success = "{\"success\":true}";
+		String failure = "{\"success\":false}";
 		User current = (User) cri.uniqueResult();
-		String json = om.writeValueAsString(current);
-		log.trace(json);
-		return json;
+		if (current == null) {
+			log.trace("User was null");
+			return failure;
+		} else if (current.getPassword().equals(u.getPassword())) {
+			log.trace("Success");
+			return success;
+		} else {
+			log.trace("Password didn't match");
+			return failure;
+		}
 	}
 
 	@RequestMapping(value = "/loggedIn", method = RequestMethod.GET)
