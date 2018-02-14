@@ -32,19 +32,9 @@ public class LoginController {
 		Criteria cri = session.createCriteria(User.class);
 		log.trace(u);
 		cri.add(Restrictions.eq("username", u.getUsername()));
-		String success = "{\"success\":true}";
-		String failure = "{\"success\":false}";
 		User current = (User) cri.uniqueResult();
-		if (current == null) {
-			log.trace("User was null");
-			return failure;
-		} else if (current.getPassword().equals(u.getPassword())) {
-			log.trace("Success");
-			return success;
-		} else {
-			log.trace("Password didn't match");
-			return failure;
-		}
+		String json = om.writeValueAsString(current);
+		return json;
 	}
 
 	@RequestMapping(value = "/loggedIn", method = RequestMethod.GET)
