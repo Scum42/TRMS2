@@ -32,8 +32,8 @@ public class LoginController {
 		Criteria cri = s.createCriteria(User.class);
 		log.trace(u.getUsername());
 		cri.add(Restrictions.eq("username", u.getUsername()));
-		User u = (User) cri.uniqueResult();
-		String json = om.writeValueAsString(u);
+		User current = (User) cri.uniqueResult();
+		String json = om.writeValueAsString(current);
 		log.trace(json);
 		return json;
 	}
