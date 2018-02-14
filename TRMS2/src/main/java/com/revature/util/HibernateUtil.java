@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HibernateUtil {
+
 	private SessionFactory sessionFactory;
 
 	public HibernateUtil() {
@@ -27,11 +28,8 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = null;
-	}
-
 	public Session getSession() {
 		return this.getSessionFactory().openSession();
 	}
+
 }
