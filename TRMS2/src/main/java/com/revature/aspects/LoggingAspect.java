@@ -11,13 +11,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class Logging {
+public class LoggingAspect {
 
 	private Logger log = Logger.getRootLogger();
 
 	/* Hooks */
 	@Pointcut("execution(* com.revature..*(..))")
 	public void allMethods() {
+		/* Hook for all methods in the entire project */
 	}
 
 	/* Aspects */
@@ -29,7 +30,7 @@ public class Logging {
 		try {
 			pjpReturn = pjp.proceed();
 		} catch (Throwable e) {
-			log.error(e.getMessage());
+			log.error(e);
 
 			for (StackTraceElement s : e.getStackTrace()) {
 				log.warn(s);
