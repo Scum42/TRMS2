@@ -19,7 +19,7 @@ import com.revature.beans.User;
 import com.revature.util.HibernateUtilStatic;
 
 @Controller
-@CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
+@CrossOrigin(origins = "*")
 public class LoginController {
 	private static Logger log = Logger.getLogger(LoginController.class);
 	private static ObjectMapper om = new ObjectMapper();
