@@ -27,6 +27,10 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = null;
+	}
+
 	public Session getSession() {
 		return this.getSessionFactory().openSession();
 	}
