@@ -1,7 +1,7 @@
 package com.revature.controller;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,25 +23,25 @@ public class TournamentController {
 	private static ObjectMapper om = new ObjectMapper();
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
-	private static TournamentDao tournyDao = new TournamentHibernateDao();
+	@Autowired
+	private TournamentDao tournyDao;
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public String getTournamentAOP() throws JsonProcessingException {
-		log.debug("Get tournament");
 		Tournament t = tournyDao.loadTournament(1);
 		String str = om.writeValueAsString(t);
 		log.trace(str);
 		return om.writeValueAsString(t);
 	}
 
-	//	@RequestMapping(method = RequestMethod.GET)
-//	@ResponseBody
-//	public String getTournament() throws JsonProcessingException {
-//		Session session = hu.getSession();
-//		Tournament t = session.get(Tournament.class, 1);
-//		String str = om.writeValueAsString(t);
-//		log.trace(str);
-//		return om.writeValueAsString(t);
-//	}
+	// @RequestMapping(method = RequestMethod.GET)
+	// @ResponseBody
+	// public String getTournament() throws JsonProcessingException {
+	// Session session = hu.getSession();
+	// Tournament t = session.get(Tournament.class, 1);
+	// String str = om.writeValueAsString(t);
+	// log.trace(str);
+	// return om.writeValueAsString(t);
+	// }
 }
