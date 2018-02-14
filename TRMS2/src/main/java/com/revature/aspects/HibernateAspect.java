@@ -1,5 +1,6 @@
 package com.revature.aspects;
 
+import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -16,17 +17,27 @@ import com.revature.util.HibernateUtil;
 @Aspect
 public class HibernateAspect {
 
+	private static Logger log = Logger.getLogger(HibernateAspect.class);
+
 	@Autowired
 	private HibernateUtil hu;
 
 	/* Hooks */
-	@Pointcut("execution(* com.revature.data..*(..)) && !execution(* com.revature.data..setSession(..))")
+//	@Pointcut("execution(* com.revature.data..*(..)) && !execution(* com.revature.data..setSession(..))")
+//	@Pointcut("execution(* com.revature..*(..))")
+	@Pointcut("target(com.revature.data.HibernateSession)")
+//	@Pointcut("execution(* com.revature.data.*.*(..))")
+//	@Pointcut("execution(* com.revature.data.TournamentHibernateDao.*(..))")
+//	@Pointcut("execution(* com.revature..HibernateSession+.*(..))")
+//	@Pointcut("execution(* com.revature..*(..)) && !execution(* com.revature.data..setSession(..))")
 	public void allDaoObjections() {
 		/* Hook for all DAO methods except for HibernateSession#setSession(Session) */
+		log.debug("Hook");
 	}
 
 	@Around("allDaoObjections()")
 	public Object manageSession(ProceedingJoinPoint pjp) throws Throwable {
+		log.debug("Hello, World from HibernateAspect");
 		Object pjpReturn = null;
 
 		Session session = hu.getSession();

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
+import com.revature.data.TournamentDao;
+import com.revature.data.TournamentHibernateDao;
 import com.revature.util.HibernateUtilStatic;
 
 @Controller
@@ -21,13 +23,25 @@ public class TournamentController {
 	private static ObjectMapper om = new ObjectMapper();
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
+	private static TournamentDao tournyDao = new TournamentHibernateDao();
+
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public String getTournament() throws JsonProcessingException {
-		Session session = hu.getSession();
-		Tournament t = session.get(Tournament.class, 1);
+	public String getTournamentAOP() throws JsonProcessingException {
+		log.debug("Get tournament");
+		Tournament t = tournyDao.loadTournament(1);
 		String str = om.writeValueAsString(t);
 		log.trace(str);
 		return om.writeValueAsString(t);
 	}
+
+	//	@RequestMapping(method = RequestMethod.GET)
+//	@ResponseBody
+//	public String getTournament() throws JsonProcessingException {
+//		Session session = hu.getSession();
+//		Tournament t = session.get(Tournament.class, 1);
+//		String str = om.writeValueAsString(t);
+//		log.trace(str);
+//		return om.writeValueAsString(t);
+//	}
 }
