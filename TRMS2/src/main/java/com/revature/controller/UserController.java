@@ -11,23 +11,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.User;
-import com.revature.util.HibernateUtil;
+import com.revature.data.HibernateSession;
 
 @Controller
 @RequestMapping(value = "/user")
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
-public class UserController {
+public class UserController implements HibernateSession {
 	private static Logger log = Logger.getLogger(UserController.class);
-	private static HibernateUtil hu = HibernateUtil.getInstance();
 	private static ObjectMapper om = new ObjectMapper();
+
+	private Session session;
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public String getUser() throws JsonProcessingException {
-		Session s = hu.getSession();
-		User u = (User) s.get(User.class, 1);
+		User u = (User) session.get(User.class, 1);
 		String json = om.writeValueAsString(u);
 		log.trace(json);
 		return om.writeValueAsString(u);
+	}
+
+	@Override
+	public void setSession(Session session) {
+		this.session = session;
 	}
 }
