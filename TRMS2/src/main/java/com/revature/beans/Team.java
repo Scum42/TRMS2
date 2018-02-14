@@ -26,7 +26,7 @@ public class Team {
 	@Column(name = "team_name")
 	private String teamName;
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "t_id"), inverseJoinColumns = @JoinColumn(name = "u_id"))
 	private List<User> myMembers;
 
 	public Team() {

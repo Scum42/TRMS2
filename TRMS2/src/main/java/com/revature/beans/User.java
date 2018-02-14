@@ -27,11 +27,17 @@ public class User {
 	private String username;
 	@Column(name = "pass")
 	private String password;
+<<<<<<< HEAD
 	
 	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	//p_id was once user_id, t_id was once team_id
+=======
+	private String email;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+>>>>>>> f4d1da3cff10bf74630c7edc33e204354155bbe1
 	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "t_id"))
 	private List<Team> myTeams;
 
@@ -112,13 +118,31 @@ public class User {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Team> getMyTeams() {
+		return myTeams;
+	}
+
+	public void setMyTeams(List<Team> myTeams) {
+		this.myTeams = myTeams;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
+		result = prime * result + ((myTeams == null) ? 0 : myTeams.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -133,6 +157,11 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
 		if (firstname == null) {
 			if (other.firstname != null)
 				return false;
@@ -144,6 +173,11 @@ public class User {
 			if (other.lastname != null)
 				return false;
 		} else if (!lastname.equals(other.lastname))
+			return false;
+		if (myTeams == null) {
+			if (other.myTeams != null)
+				return false;
+		} else if (!myTeams.equals(other.myTeams))
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -161,7 +195,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "[User: id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
-				+ ", password=" + password + "]";
+				+ ", password=" + password + ", email=" + email + ", myTeams=" + myTeams + "]";
 	}
 
 }

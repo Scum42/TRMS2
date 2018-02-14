@@ -39,11 +39,11 @@ public class Tournament {
 	private int maxNum;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "tourny_to_user", joinColumns = @JoinColumn(name = "tournament_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@JoinTable(name = "tourny_to_user", joinColumns = @JoinColumn(name = "tourny_id"), inverseJoinColumns = @JoinColumn(name = "participant_id"))
 	private List<User> registeredUsers;
 
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "t_id")
+	@JoinTable(name="tourny_to_round", joinColumns=@JoinColumn(name = "t_id"), inverseJoinColumns = @JoinColumn(name="r_id"))
 	private List<Round> tournyRounds;
 
 	public Tournament() {
