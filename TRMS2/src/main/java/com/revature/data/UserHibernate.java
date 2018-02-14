@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 
 import com.revature.beans.User;
 import com.revature.util.HibernateUtil;
+import com.revature.util.HibernateUtilStatic;
 
 @Component
 public class UserHibernate implements UserDao/*, HibernateSession*/ {
-	private static HibernateUtil hu = HibernateUtil.getInstance();
+	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 	private Session session;
 	
 	/*

@@ -27,17 +27,11 @@ public class User {
 	private String username;
 	@Column(name = "pass")
 	private String password;
-<<<<<<< HEAD
 	
 	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	//p_id was once user_id, t_id was once team_id
-=======
-	private String email;
-
-	@ManyToMany(fetch = FetchType.LAZY)
->>>>>>> f4d1da3cff10bf74630c7edc33e204354155bbe1
 	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "t_id"))
 	private List<Team> myTeams;
 
@@ -60,22 +54,6 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.email = email;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public List<Team> getMyTeams() {
-		return myTeams;
-	}
-
-	public void setMyTeams(List<Team> myTeams) {
-		this.myTeams = myTeams;
 	}
 
 	public int getId() {

@@ -8,11 +8,11 @@ import org.hibernate.Transaction;
 
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
-import com.revature.util.HibernateUtil;
+import com.revature.util.HibernateUtilStatic;
 
 public class TournamentHibernate implements TournamentDao, HibernateSession {
 	private static Logger log = Logger.getLogger(TournamentHibernate.class);
-	private static HibernateUtil hu = HibernateUtil.getInstance();
+	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 	private static TournamentDao td = new TournamentHibernate();
 	
 	@Override

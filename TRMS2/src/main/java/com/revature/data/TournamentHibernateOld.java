@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
-import com.revature.util.HibernateUtil;
+import com.revature.util.HibernateUtilStatic;
 
 /*	Notes By Jonathan
  *	So, since we need the Hibernate Implementations of this, and I need to get started on my part of the project
@@ -22,7 +22,7 @@ import com.revature.util.HibernateUtil;
 
 public class TournamentHibernateOld /*implements TournamentDao*/ {
 	private static Logger log = Logger.getLogger(TournamentHibernateOld.class);
-	private static HibernateUtil hu = HibernateUtil.getInstance();
+	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 	
 	//@Override
 	public int createTournament(Tournament tournament) {
