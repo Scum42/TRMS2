@@ -2,7 +2,6 @@ package com.revature.data;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
@@ -11,8 +10,13 @@ import com.revature.beans.User;
 
 @Component
 public class TournamentHibernateDao implements TournamentDao, HibernateSession {
-	private static Logger log = Logger.getLogger(TournamentHibernateDao.class);
+
 	private Session session;
+
+	@Override
+	public void setSession(Session session) {
+		this.session = session;
+	}
 
 	@Override
 	public Tournament persistTournament(Tournament tournament) {
@@ -22,10 +26,8 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public Tournament loadTournament(int id) {
-		log.trace("Session is: " + session);
-		Tournament t = (Tournament) session.get(Tournament.class, id);
-		log.trace(t.getStyle());
-		return (Tournament) session.get(Tournament.class, id);
+		Tournament tourny = (Tournament) session.get(Tournament.class, id);
+		return tourny;
 	}
 
 	@Override
@@ -56,12 +58,6 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	public void mergeTournament(Tournament tournament) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void setSession(Session session) {
-		log.trace("Setting session to: " + session);
-		this.session = session;
 	}
 
 }

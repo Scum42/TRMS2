@@ -12,6 +12,7 @@
 		<!-- Hibernate Specific properties -->
 		<property name="show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 		<!-- Tell hibernate that we are mapping classes to objects -->
 		<!-- Annotations! -->

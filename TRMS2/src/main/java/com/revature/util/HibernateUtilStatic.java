@@ -8,6 +8,7 @@ import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+@Deprecated
 public class HibernateUtilStatic {
 	private SessionFactory sessionFactory;
 
