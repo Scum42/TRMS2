@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 import com.revature.beans.User;
 import com.revature.util.HibernateUtil;
 
-//@Component
+@Component
 public class UserHibernate implements UserDao/*, HibernateSession*/ {
 	private static HibernateUtil hu = HibernateUtil.getInstance();
-	//private Session session;
+	private Session session;
 	
 	/*
 	@Override
@@ -51,10 +51,12 @@ public class UserHibernate implements UserDao/*, HibernateSession*/ {
 	// Was load, trying get now.
 	@Override
 	public User getUser(int id) {
+		
 		Session su = hu.getSession();
 		User u = su.get(User.class, id);
 		su.close();
 		return u;
+		
 		/*
 		User u = session.get(User.class, id);
 		return u;
@@ -72,6 +74,7 @@ public class UserHibernate implements UserDao/*, HibernateSession*/ {
 			return list.get(0);
 		}
 		return null;
+		
 		/*
 		String query = "FROM com.revature.beans.User WHERE username=:name";
 		Query q = session.createQuery(query);
@@ -96,6 +99,7 @@ public class UserHibernate implements UserDao/*, HibernateSession*/ {
 		s.close();
 
 		return user;
+		
 		/*
 		User user = (User) session.merge(u);
 		return user;
@@ -110,6 +114,7 @@ public class UserHibernate implements UserDao/*, HibernateSession*/ {
 		s.delete(u);
 		tx.commit();
 		s.close();
+		
 		/*
 		session.delete(u);
 		*/
