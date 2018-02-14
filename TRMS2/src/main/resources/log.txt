@@ -220,3 +220,185 @@
 2018-02-13 13:09:10 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
 2018-02-13 13:09:15 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
 2018-02-13 13:09:27 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 16:09:42 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:09:42 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:09:42 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:09:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@63d4e2ba: startup date [Tue Feb 13 16:09:42 EST 2018]; root of context hierarchy
+2018-02-13 16:09:43 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:09:43 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:09:43 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:09:43 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:13:50 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:13:50 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:13:50 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:13:50 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@63d4e2ba: startup date [Tue Feb 13 16:13:50 EST 2018]; root of context hierarchy
+2018-02-13 16:13:50 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:13:50 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:13:50 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:13:51 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [src/main/resources/beans.xml]
+2018-02-13 16:17:20 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:17:20 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:17:20 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:17:20 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@63d4e2ba: startup date [Tue Feb 13 16:17:20 EST 2018]; root of context hierarchy
+2018-02-13 16:17:21 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:17:21 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:17:21 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:17:21 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/src/main/resources/beans.xml]
+2018-02-13 16:18:00 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:18:00 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:18:00 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:18:00 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@63d4e2ba: startup date [Tue Feb 13 16:18:00 EST 2018]; root of context hierarchy
+2018-02-13 16:18:00 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:18:00 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:18:00 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:18:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:src/main/resources/beans.xml]
+2018-02-13 16:21:04 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:21:04 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:21:04 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:21:04 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@63d4e2ba: startup date [Tue Feb 13 16:21:04 EST 2018]; root of context hierarchy
+2018-02-13 16:21:04 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:21:04 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:21:04 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:21:05 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:23:58 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:23:58 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:23:58 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:23:58 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:23:58 EST 2018]; root of context hierarchy
+2018-02-13 16:23:59 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:23:59 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:23:59 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:23:59 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:26:00 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:26:00 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:26:00 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:26:00 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:26:00 EST 2018]; root of context hierarchy
+2018-02-13 16:26:00 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:26:00 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:26:00 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:26:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [src/main/webapp/WEB-INF/beans.xml]
+2018-02-13 16:29:45 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:29:46 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:29:46 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:29:46 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:29:46 EST 2018]; root of context hierarchy
+2018-02-13 16:29:46 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:29:46 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:29:46 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:29:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [src/main/webapp/WEB-INF/beans.xml]
+2018-02-13 16:40:38 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:40:38 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:40:38 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:40:38 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:40:38 EST 2018]; root of context hierarchy
+2018-02-13 16:40:39 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:40:39 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:40:39 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:40:39 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [src/main/webapp/WEB-INF/beans.xml]
+2018-02-13 16:41:18 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:41:18 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:41:18 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:41:18 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:41:18 EST 2018]; root of context hierarchy
+2018-02-13 16:41:18 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:41:18 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:41:18 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:41:18 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [src/main/webapp/WEB-INF/beans.xml]
+2018-02-13 16:42:27 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:42:27 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:42:27 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:42:27 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:42:27 EST 2018]; root of context hierarchy
+2018-02-13 16:42:27 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:42:27 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:42:27 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:42:27 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:50:13 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:50:13 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:50:13 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:50:13 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1ee0005: startup date [Tue Feb 13 16:50:13 EST 2018]; root of context hierarchy
+2018-02-13 16:50:14 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:50:14 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:50:14 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:50:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:53:05 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:53:05 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:53:05 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:53:05 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3aa9e816: startup date [Tue Feb 13 16:53:05 EST 2018]; root of context hierarchy
+2018-02-13 16:53:05 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2018-02-13 16:53:05 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-02-13 16:53:05 DEBUG StandardEnvironment:127 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-02-13 16:53:05 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [beans.xml]
+2018-02-13 16:53:37 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 16:54:29 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 16:54:29 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 16:54:34 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 16:54:35 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 16:54:39 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 16:54:39 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 16:54:39 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 16:54:39 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 16:54:57 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 16:55:22 WARN  SqlExceptionHelper:129 - SQL Error: 1, SQLState: 23000
+2018-02-13 16:55:22 ERROR SqlExceptionHelper:131 - ORA-00001: unique constraint (TRMS2.SYS_C007637) violated
+
+2018-02-13 16:55:22 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 16:55:22 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-13 16:57:32 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 16:57:34 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 16:57:34 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 16:57:36 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 16:57:37 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 16:57:37 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 16:57:37 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 16:57:37 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 16:57:37 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 16:57:41 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 16:57:48 WARN  SqlExceptionHelper:129 - SQL Error: 1, SQLState: 23000
+2018-02-13 16:57:48 ERROR SqlExceptionHelper:131 - ORA-00001: unique constraint (TRMS2.SYS_C007637) violated
+
+2018-02-13 16:57:48 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 16:57:48 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-13 20:08:52 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 20:08:55 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 20:08:55 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 20:08:59 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 20:09:01 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 20:09:02 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 20:09:02 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 20:09:02 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 20:09:02 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 20:09:10 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 20:09:24 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 20:11:14 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 20:11:16 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 20:11:16 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 20:11:19 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 20:11:20 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 20:11:20 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 20:11:20 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 20:11:20 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 20:11:20 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 20:11:24 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 20:11:33 WARN  SqlExceptionHelper:129 - SQL Error: 1, SQLState: 23000
+2018-02-13 20:11:33 ERROR SqlExceptionHelper:131 - ORA-00001: unique constraint (TRMS2.SYS_C007637) violated
+
+2018-02-13 20:11:33 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2018-02-13 20:11:33 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-02-13 20:12:16 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 20:12:18 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 20:12:18 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 20:12:20 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 20:12:21 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 20:12:21 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 20:12:21 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 20:12:21 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 20:12:21 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 20:12:27 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 20:12:35 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-13 20:15:17 DEBUG logging:109 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-02-13 20:15:18 INFO  Version:45 - HHH000412: Hibernate Core {5.2.12.Final}
+2018-02-13 20:15:18 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2018-02-13 20:15:20 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-13 20:15:21 WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2018-02-13 20:15:21 INFO  pooling:126 - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+2018-02-13 20:15:21 INFO  pooling:135 - HHH10001001: Connection properties: {user=trms2, password=****}
+2018-02-13 20:15:21 INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2018-02-13 20:15:21 INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2018-02-13 20:15:25 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-02-13 20:15:33 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory

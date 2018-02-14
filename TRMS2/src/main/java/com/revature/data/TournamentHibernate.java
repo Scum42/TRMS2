@@ -10,15 +10,20 @@ import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.util.HibernateUtil;
 
-public class TournamentHibernate implements TournamentDao {
+public class TournamentHibernate implements TournamentDao, HibernateSession {
 	private static Logger log = Logger.getLogger(TournamentHibernate.class);
 	private static HibernateUtil hu = HibernateUtil.getInstance();
 	private static TournamentDao td = new TournamentHibernate();
+	
+	@Override
+	public void setSession(Session session) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public static void main(String[] args) {
 		// Very bad practice, but I'm too lazy to test out in jUnit right now
-		User owner = new User(0, "John", "Ocon", "jocon", "123");
-		owner.setEmail("jocon@yahoo.com");
+		User owner = new User(0, "John", "Ocon", "jocon", "123", "jocon@yahoo.com");
 		// User not has id of 2 in database ...
 
 		Tournament t = new Tournament();
@@ -101,7 +106,7 @@ public class TournamentHibernate implements TournamentDao {
 	@Override
 	public void deleteTournament(Tournament tournament) {
 		Session s = hu.getSession();
-		Transaction tx = s.getTransaction();
+		Transaction tx = s.beginTransaction();
 		s.delete(tournament);
 		tx.commit();
 		s.close();

@@ -2,18 +2,26 @@ package com.revature.data;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
 import com.revature.beans.User;
 import com.revature.util.HibernateUtil;
 
-public class UserHibernate implements UserDao {
-	private static Logger log = Logger.getLogger(UserHibernate.class);
+//@Component
+public class UserHibernate implements UserDao/*, HibernateSession*/ {
 	private static HibernateUtil hu = HibernateUtil.getInstance();
-
+	//private Session session;
+	
+	/*
+	@Override
+	public void setSession(Session session) {
+		this.session = session;
+	}
+	*/
+	
 	// Create
 	@Override
 	public User persistUser(User u) {
@@ -21,7 +29,7 @@ public class UserHibernate implements UserDao {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			int i = (Integer) session.save(u);
+			session.save(u);
 
 			tx.commit();
 			return u;
@@ -32,6 +40,11 @@ public class UserHibernate implements UserDao {
 			session.close();
 		}
 		return null;
+		
+		/*
+		session.save(u);
+		return u;
+		*/
 	}
 
 	// Read
@@ -42,12 +55,15 @@ public class UserHibernate implements UserDao {
 		User u = su.get(User.class, id);
 		su.close();
 		return u;
+		/*
+		User u = session.get(User.class, id);
+		return u;
+		*/
 	}
 
 	@Override
 	public User getUserByUsername(String un) {
 		Session s = hu.getSession();
-		Transaction tx = s.beginTransaction();
 		String query = "FROM com.revature.beans.User WHERE username=:name";
 		Query q = s.createQuery(query);
 		q.setParameter("name", un);
@@ -56,6 +72,16 @@ public class UserHibernate implements UserDao {
 			return list.get(0);
 		}
 		return null;
+		/*
+		String query = "FROM com.revature.beans.User WHERE username=:name";
+		Query q = session.createQuery(query);
+		q.setParameter("name", un);
+		List<User> list = (List<User>) q.list();
+		if(list.isEmpty() == false){
+			return list.get(0);
+		}
+		return null;
+		*/
 	}
 
 	// Update
@@ -70,6 +96,10 @@ public class UserHibernate implements UserDao {
 		s.close();
 
 		return user;
+		/*
+		User user = (User) session.merge(u);
+		return user;
+		*/
 	}
 
 	// Delete
@@ -80,5 +110,8 @@ public class UserHibernate implements UserDao {
 		s.delete(u);
 		tx.commit();
 		s.close();
+		/*
+		session.delete(u);
+		*/
 	}
 }

@@ -46,7 +46,7 @@ public class User {
 		this.password = password;
 	}*/
 	
-	public User(int id, String firstname, String lastname, String username, String password) {
+	public User(int id, String firstname, String lastname, String username, String password, String email) {
 		super();
 		this.id = id;
 		this.firstname = firstname;

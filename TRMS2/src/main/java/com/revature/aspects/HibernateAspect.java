@@ -16,16 +16,16 @@ import com.revature.util.HibernateUtil;
 @Aspect
 public class HibernateAspect {
 
-	@Autowired
+	//@Autowired
 	private HibernateUtil hu;
 
 	/* Hooks */
-	@Pointcut("execution(* com.revature.data..*(..)) && !execution(* com.revature.data..setSession(..))")
+	//@Pointcut("execution(* com.revature.data..*(..)) && !execution(* com.revature.data..setSession(..))")
 	public void allDaoObjections() {
 		/* Hook for all DAO methods except for HibernateSession#setSession(Session) */
 	}
 
-	@Around("allDaoObjections()")
+	//@Around("allDaoObjections()")
 	public Object manageSession(ProceedingJoinPoint pjp) throws Throwable {
 		Object pjpReturn = null;
 
