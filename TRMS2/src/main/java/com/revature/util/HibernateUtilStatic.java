@@ -7,14 +7,20 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.springframework.stereotype.Component;
 
-@Component
-public class HibernateUtil {
+public class HibernateUtilStatic {
 	private SessionFactory sessionFactory;
 
-	public HibernateUtil() {
+	private HibernateUtilStatic() {
 		super();
+	}
+
+	private static HibernateUtilStatic instance = null;
+
+	public static HibernateUtilStatic getInstance() {
+		if (instance == null)
+			instance = new HibernateUtilStatic();
+		return instance;
 	}
 
 	public SessionFactory getSessionFactory() {

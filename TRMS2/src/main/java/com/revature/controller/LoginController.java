@@ -16,38 +16,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.User;
-import com.revature.data.HibernateSession;
+import com.revature.util.HibernateUtilStatic;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
-public class LoginController implements HibernateSession {
+public class LoginController {
 	private static Logger log = Logger.getLogger(LoginController.class);
 	private static ObjectMapper om = new ObjectMapper();
-	private Session session;
+	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public String login(@RequestBody User u) throws JsonProcessingException {
+	public String login(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
+		Session session = hu.getSession();
 		Criteria cri = session.createCriteria(User.class);
-		log.trace(u.getUsername());
+		log.trace(u);
 		cri.add(Restrictions.eq("username", u.getUsername()));
+		String success = "{\"success\":true}";
+		String failure = "{\"success\":false}";
 		User current = (User) cri.uniqueResult();
-		String json = om.writeValueAsString(current);
-		log.trace(json);
-		return json;
+		if (current == null) {
+			log.trace("User was null");
+			return failure;
+		} else if (current.getPassword().equals(u.getPassword())) {
+			log.trace("Success");
+			return success;
+		} else {
+			log.trace("Password didn't match");
+			return failure;
+		}
 	}
 
 	@RequestMapping(value = "/loggedIn", method = RequestMethod.GET)
 	@ResponseBody
 	public String getLoggedInUser(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
+		if (u == null) {
+			u = new User();
+		}
 		String json = om.writeValueAsString(u);
 		log.trace(json);
 		return json;
-	}
-
-	@Override
-	public void setSession(Session session) {
-		this.session = session;
 	}
 }

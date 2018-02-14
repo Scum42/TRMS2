@@ -11,29 +11,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
-import com.revature.data.HibernateSession;
+import com.revature.util.HibernateUtilStatic;
 
 @Controller
 @RequestMapping(value = "/tournament")
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
-public class TournamentController implements HibernateSession {
+public class TournamentController {
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
-
-	private Session session;
+	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public String getTournament() throws JsonProcessingException {
-		Tournament t = (Tournament) session.get(Tournament.class, 1);
+		Session session = hu.getSession();
+		Tournament t = session.get(Tournament.class, 1);
 		String str = om.writeValueAsString(t);
 		log.trace(str);
-		session.close();
 		return om.writeValueAsString(t);
-	}
-
-	@Override
-	public void setSession(Session session) {
-		this.session = session;
 	}
 }

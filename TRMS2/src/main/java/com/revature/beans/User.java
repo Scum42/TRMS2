@@ -30,7 +30,7 @@ public class User {
 	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "team_id"))
+	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "t_id"))
 	private List<Team> myTeams;
 
 	public User() {

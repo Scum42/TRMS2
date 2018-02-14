@@ -11,8 +11,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "Results")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Results {
 	@Id
 	@Column(name = "result_id")
