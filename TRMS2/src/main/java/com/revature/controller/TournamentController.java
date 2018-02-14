@@ -28,6 +28,7 @@ public class TournamentController {
 		Tournament t = session.get(Tournament.class, 1);
 		String str = om.writeValueAsString(t);
 		log.trace(str);
-		return om.writeValueAsString(t);
+		session.close();
+		return str;
 	}
 }
