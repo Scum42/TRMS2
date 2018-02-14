@@ -14,14 +14,13 @@ import com.revature.beans.Tournament;
 import com.revature.util.HibernateUtilStatic;
 
 @Controller
-@RequestMapping(value = "/tournament")
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
 public class TournamentController {
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/tournament",method = RequestMethod.GET)
 	@ResponseBody
 	public String getTournament() throws JsonProcessingException {
 		Session session = hu.getSession();
