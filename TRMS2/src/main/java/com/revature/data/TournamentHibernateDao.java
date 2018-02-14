@@ -22,9 +22,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public Tournament loadTournament(int id) {
-		log.trace("Session is: " + session);
 		Tournament t = (Tournament) session.get(Tournament.class, id);
-		log.trace(t.getStyle());
 		return (Tournament) session.get(Tournament.class, id);
 	}
 
