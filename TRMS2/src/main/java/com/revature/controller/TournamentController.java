@@ -15,7 +15,7 @@ import com.revature.util.HibernateUtil;
 
 @Controller
 @RequestMapping(value = "/tournament")
-@CrossOrigin(origins = { "http://localhost:8080" })
+@CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
 public class TournamentController {
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static HibernateUtil hu = HibernateUtil.getInstance();
@@ -26,6 +26,9 @@ public class TournamentController {
 	public String getTournament() throws JsonProcessingException {
 		Session s = hu.getSession();
 		Tournament t = (Tournament) s.get(Tournament.class, 1);
+		String str = om.writeValueAsString(t);
+		log.trace(str);
+		s.close();
 		return om.writeValueAsString(t);
 	}
 }
