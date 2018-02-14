@@ -16,20 +16,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.User;
-import com.revature.util.HibernateUtil;
+import com.revature.data.HibernateSession;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
-public class LoginController {
+public class LoginController implements HibernateSession {
 	private static Logger log = Logger.getLogger(LoginController.class);
-	private static HibernateUtil hu = HibernateUtil.getInstance();
 	private static ObjectMapper om = new ObjectMapper();
+	private Session session;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public String login(@RequestBody User u, HttpSession session) throws JsonProcessingException {
-		Session s = hu.getSession();
-		Criteria cri = s.createCriteria(User.class);
+	public String login(@RequestBody User u) throws JsonProcessingException {
+		Criteria cri = session.createCriteria(User.class);
 		log.trace(u.getUsername());
 		cri.add(Restrictions.eq("username", u.getUsername()));
 		User current = (User) cri.uniqueResult();
@@ -45,5 +44,10 @@ public class LoginController {
 		String json = om.writeValueAsString(u);
 		log.trace(json);
 		return json;
+	}
+
+	@Override
+	public void setSession(Session session) {
+		this.session = session;
 	}
 }
