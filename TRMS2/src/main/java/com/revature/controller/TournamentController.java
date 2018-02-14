@@ -1,7 +1,10 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +32,15 @@ public class TournamentController {
 		String str = om.writeValueAsString(t);
 		log.trace(str);
 		return om.writeValueAsString(t);
+	}
+	
+	@RequestMapping(value="/all", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllTournaments() throws JsonProcessingException {
+		Session session = hu.getSession();
+		String query = "From com.revature.beans.Tournament";
+		Query<Tournament> q = session.createQuery(query, Tournament.class);
+		List<Tournament> tournList = q.getResultList();
+		return om.writeValueAsString(tournList);
 	}
 }

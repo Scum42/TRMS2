@@ -1,16 +1,16 @@
 package com.revature.beans;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
+//import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,10 +30,12 @@ public class User {
 	
 	private String email;
 
+	/*
 	@ManyToMany(fetch = FetchType.LAZY)
 	//p_id was once user_id, t_id was once team_id
 	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "t_id"))
 	private List<Team> myTeams;
+	*/
 
 	public User() {
 	}
@@ -103,7 +105,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	/*
 	public List<Team> getMyTeams() {
 		return myTeams;
 	}
@@ -111,7 +113,7 @@ public class User {
 	public void setMyTeams(List<Team> myTeams) {
 		this.myTeams = myTeams;
 	}
-
+	*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -120,7 +122,7 @@ public class User {
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
-		result = prime * result + ((myTeams == null) ? 0 : myTeams.hashCode());
+		//result = prime * result + ((myTeams == null) ? 0 : myTeams.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -152,11 +154,11 @@ public class User {
 				return false;
 		} else if (!lastname.equals(other.lastname))
 			return false;
-		if (myTeams == null) {
+		/*if (myTeams == null) {
 			if (other.myTeams != null)
 				return false;
 		} else if (!myTeams.equals(other.myTeams))
-			return false;
+			return false;*/
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -173,7 +175,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "[User: id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
-				+ ", password=" + password + ", email=" + email + ", myTeams=" + myTeams + "]";
+				+ ", password=" + password + ", email=" + email + /*", myTeams=" + myTeams +*/ "]";
 	}
 
 }

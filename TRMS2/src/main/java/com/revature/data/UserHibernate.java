@@ -8,13 +8,12 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.User;
-import com.revature.util.HibernateUtil;
 import com.revature.util.HibernateUtilStatic;
 
 @Component
 public class UserHibernate implements UserDao/*, HibernateSession*/ {
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
-	private Session session;
+	//private Session session;
 	
 	/*
 	@Override

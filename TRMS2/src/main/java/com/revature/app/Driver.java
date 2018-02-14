@@ -7,6 +7,9 @@ import com.revature.beans.User;
 import com.revature.data.UserDao;
 import com.revature.data.UserHibernate;
 
+/*
+ * 	File was created to test out running of Aspect ...
+ */
 public class Driver {
 	public static UserDao ud = new UserHibernate();
 	private static ApplicationContext ac;
