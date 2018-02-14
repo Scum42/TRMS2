@@ -26,6 +26,8 @@ public class UserController {
 	public String getUser() throws JsonProcessingException {
 		Session s = hu.getSession();
 		User u = (User) s.get(User.class, 1);
+		String json = om.writeValueAsString(u);
+		log.trace(json);
 		return om.writeValueAsString(u);
 	}
 }
