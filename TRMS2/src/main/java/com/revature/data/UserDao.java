@@ -10,6 +10,8 @@ public interface UserDao {
 
 	public User loadUserByUsername(String un);
 
+	public User loadUserByUsernameAndPassword(String username, String password);
+
 	public User mergeUser(User u);
 
 	public void deleteUser(User u);
