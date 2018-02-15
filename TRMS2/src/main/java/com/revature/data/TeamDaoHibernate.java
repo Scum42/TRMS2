@@ -17,26 +17,25 @@ public class TeamDaoHibernate implements HibernateSession, TeamDao {
 
 	@Override
 	public Team persistTeam(Team t) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = (int) session.save(t);
+		return loadTeam(id);
 	}
 
 	@Override
 	public Team loadTeam(int id) {
-		Team team = (Team) session.get(Team.class, id);
+		Team team = session.get(Team.class, id);
 		return team;
 	}
 
 	@Override
 	public void deleteTeam(Team t) {
-		// TODO Auto-generated method stub
-
+		session.delete(t);
 	}
 
 	@Override
 	public Team mergeTeam(Team t) {
-		// TODO Auto-generated method stub
-		return null;
+		session.update(t);
+		return loadTeam(t.getTeamId());
 	}
 
 }

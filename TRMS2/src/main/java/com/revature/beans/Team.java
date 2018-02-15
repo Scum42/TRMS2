@@ -23,8 +23,10 @@ public class Team {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Team")
 	@SequenceGenerator(name = "Team", sequenceName = "team_pk_seq", allocationSize = 1)
 	private int teamId;
+
 	@Column(name = "team_name")
 	private String teamName;
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "team_to_user", joinColumns = @JoinColumn(name = "t_id"), inverseJoinColumns = @JoinColumn(name = "u_id"))
 	private List<User> myMembers;
@@ -87,4 +89,5 @@ public class Team {
 	public String toString() {
 		return "Team [teamId=" + teamId + ", teamName=" + teamName + "]";
 	}
+
 }
