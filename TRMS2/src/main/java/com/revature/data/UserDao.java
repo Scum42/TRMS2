@@ -4,7 +4,7 @@ import com.revature.beans.User;
 
 public interface UserDao {
 
-	public User persistUser(User u);
+	public int persistUser(User u);
 
 	public User loadUser(int id);
 

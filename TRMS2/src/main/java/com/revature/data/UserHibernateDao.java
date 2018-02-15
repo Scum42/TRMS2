@@ -3,24 +3,22 @@ package com.revature.data;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.revature.beans.User;
 
-@Component
+@Repository
 public class UserHibernateDao implements UserDao, HibernateSession {
 	private Session session;
 
 	@Override
-	public User persistUser(User u) {
-		// TODO Auto-generated method stub
-		return null;
+	public int persistUser(User u) {
+		return (Integer) session.save(u);
 	}
 
 	@Override
 	public User loadUser(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (User) session.get(User.class, id);
 	}
 
 	@Override
@@ -40,14 +38,12 @@ public class UserHibernateDao implements UserDao, HibernateSession {
 
 	@Override
 	public User mergeUser(User u) {
-		// TODO Auto-generated method stub
-		return null;
+		return (User) session.merge(u);
 	}
 
 	@Override
 	public void deleteUser(User u) {
-		// TODO Auto-generated method stub
-
+		session.delete(u);
 	}
 
 	@Override

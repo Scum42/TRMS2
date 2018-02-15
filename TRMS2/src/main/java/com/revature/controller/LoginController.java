@@ -15,6 +15,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.User;
 import com.revature.data.UserDao;
+import com.revature.util.JsonResult;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
@@ -29,7 +30,7 @@ public class LoginController {
 	@ResponseBody
 	public String login(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
 		User current = udao.loadUserByUsernameAndPassword(u.getUsername(), u.getPassword());
-		httpSession.setAttribute("user", u);
+		httpSession.setAttribute("user", current);
 		String json = om.writeValueAsString(current);
 		return json;
 	}
@@ -40,5 +41,19 @@ public class LoginController {
 		User u = (User) session.getAttribute("user");
 		String json = om.writeValueAsString(u);
 		return json;
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@ResponseBody
+	public String registerUser(@RequestBody User u, HttpSession httpSession) {
+		udao.persistUser(u);
+		return JsonResult.getResult(true);
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@ResponseBody
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return JsonResult.getResult(true);
 	}
 }
