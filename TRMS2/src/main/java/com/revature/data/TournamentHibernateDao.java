@@ -1,5 +1,6 @@
 package com.revature.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -44,8 +45,15 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public List<Tournament> loadTournamentsByPlayer(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "From com.revature.beans.Tournament";
+		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
+		List<Tournament> myTournys = new ArrayList<Tournament>();
+		for(Tournament tour : t) {
+			if(tour.getRegisteredUsers().contains(user)) {
+				myTournys.add(tour);
+			}
+		}
+		return myTournys;
 	}
 
 	@Override

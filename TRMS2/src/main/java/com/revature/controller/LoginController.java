@@ -42,7 +42,7 @@ public class LoginController {
 	public String getLoggedInUser(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		if (u == null) {
-			u = new User();
+			u = null;
 		}
 		String json = om.writeValueAsString(u);
 		log.trace(json);
