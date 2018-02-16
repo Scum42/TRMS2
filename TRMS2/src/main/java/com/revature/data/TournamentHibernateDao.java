@@ -3,6 +3,7 @@ package com.revature.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import com.revature.beans.User;
 @Component
 public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
+	private Logger log = Logger.getLogger(TournamentHibernateDao.class);
 	private Session session;
 
 	@Override
@@ -47,12 +49,17 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	public List<Tournament> loadTournamentsByPlayer(User user) {
 		String hql = "From com.revature.beans.Tournament";
 		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
+		log.trace(t);
 		List<Tournament> myTournys = new ArrayList<Tournament>();
 		for(Tournament tour : t) {
-			if(tour.getRegisteredUsers().contains(user)) {
-				myTournys.add(tour);
+			log.trace(user);
+			log.trace(tour.getRegisteredUsers());
+			for(User u: tour.getRegisteredUsers()) {
+				if(u.getId() == user.getId())
+					myTournys.add(tour);
 			}
 		}
+		log.trace(myTournys);
 		return myTournys;
 	}
 

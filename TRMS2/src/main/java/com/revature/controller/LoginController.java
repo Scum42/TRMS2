@@ -29,7 +29,7 @@ public class LoginController {
 	@ResponseBody
 	public String login(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
 		User current = udao.loadUserByUsernameAndPassword(u.getUsername(), u.getPassword());
-		httpSession.setAttribute("user", u);
+		httpSession.setAttribute("user", current);
 		String json = om.writeValueAsString(current);
 		return json;
 	}

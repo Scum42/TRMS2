@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,14 +29,14 @@ public class TournamentController {
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
 
-	@RequestMapping(value = "/tournament", method = RequestMethod.GET)
+	@RequestMapping(value = "/tournament", method = RequestMethod.POST)
 	@ResponseBody
-	public String getTournamentAOP() throws JsonProcessingException {
-		Tournament t = tournyDao.loadTournament(1);
+	public String getTournamentAOP(@RequestBody int id) throws JsonProcessingException {
+		Tournament t = tournyDao.loadTournament(id);
 		return om.writeValueAsString(t);
 	}
 	
-	@RequestMapping(value = "/mytournamets", method = RequestMethod.GET)
+	@RequestMapping(value = "/mytournaments", method = RequestMethod.GET)
 	@ResponseBody
 	public String getPlayerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
