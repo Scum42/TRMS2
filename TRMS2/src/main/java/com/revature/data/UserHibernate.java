@@ -67,9 +67,9 @@ public class UserHibernate implements UserDao/*, HibernateSession*/ {
 	public User getUserByUsername(String un) {
 		Session s = hu.getSession();
 		String query = "FROM com.revature.beans.User WHERE username=:name";
-		Query q = s.createQuery(query);
+		Query<User> q = s.createQuery(query, User.class);
 		q.setParameter("name", un);
-		List<User> list = (List<User>) q.list();
+		List<User> list = q.getResultList();
 		if (list.isEmpty() == false) {
 			return list.get(0);
 		}

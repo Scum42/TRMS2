@@ -10,16 +10,16 @@ import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.util.HibernateUtilStatic;
 
-public class TournamentHibernate implements TournamentDao, HibernateSession {
+public class TournamentHibernate implements TournamentDao/*, HibernateSession*/ {
 	private static Logger log = Logger.getLogger(TournamentHibernate.class);
 	private static HibernateUtilStatic hu = HibernateUtilStatic.getInstance();
 	private static TournamentDao td = new TournamentHibernate();
-	
+	/*
 	@Override
 	public void setSession(Session session) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 	public static void main(String[] args) {
 		// Very bad practice, but I'm too lazy to test out in jUnit right now
@@ -70,7 +70,10 @@ public class TournamentHibernate implements TournamentDao, HibernateSession {
 	@Override
 	public Tournament loadTournament(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Session su = hu.getSession();
+		Tournament t = su.get(Tournament.class, id);
+		su.close();
+		return t;
 	}
 
 	@Override

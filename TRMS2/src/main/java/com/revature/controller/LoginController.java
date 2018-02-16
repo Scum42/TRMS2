@@ -34,6 +34,8 @@ public class LoginController {
 		cri.add(Restrictions.eq("username", u.getUsername()));
 		User current = (User) cri.uniqueResult();
 		String json = om.writeValueAsString(current);
+		//Added this as it was never being set ....
+		httpSession.setAttribute("user", current);
 		return json;
 	}
 
