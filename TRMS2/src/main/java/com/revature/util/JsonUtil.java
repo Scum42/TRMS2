@@ -9,15 +9,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JsonUtil {
 	private ObjectMapper om = new ObjectMapper();
 
+	public static final String JSON_NULL = "null";
+
 	public String getJsonSuccess(boolean success) {
 		return "{\"success\":" + success + "}";
 	}
 
 	public String toJson(Object o) throws JsonProcessingException {
 		return om.writeValueAsString(o);
-	}
-
-	public String getJsonNull() throws JsonProcessingException {
-		return "null";
 	}
 }

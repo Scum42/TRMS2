@@ -29,8 +29,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public Tournament loadTournament(int id) {
-		Tournament tourny = (Tournament) session.get(Tournament.class, id);
-		return tourny;
+		return (Tournament) session.get(Tournament.class, id);
 	}
 
 	@Override
@@ -50,12 +49,12 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 		String hql = "From com.revature.beans.Tournament";
 		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
 		log.trace(t);
-		List<Tournament> myTournys = new ArrayList<Tournament>();
-		for(Tournament tour : t) {
+		List<Tournament> myTournys = new ArrayList<>();
+		for (Tournament tour : t) {
 			log.trace(user);
 			log.trace(tour.getRegisteredUsers());
-			for(User u: tour.getRegisteredUsers()) {
-				if(u.getId() == user.getId())
+			for (User u : tour.getRegisteredUsers()) {
+				if (u.getId() == user.getId())
 					myTournys.add(tour);
 			}
 		}

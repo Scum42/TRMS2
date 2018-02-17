@@ -31,8 +31,7 @@ public class LoginController {
 		User current = udao.loadUserByUsernameAndPassword(u.getUsername(), u.getPassword());
 		httpSession.setAttribute("user", current);
 
-		String json = ju.toJson(current);
-		return json;
+		return ju.toJson(current);
 	}
 
 	@RequestMapping(value = "/loggedIn", method = RequestMethod.GET)
@@ -45,19 +44,16 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
+	public String registerUser(@RequestBody User u, HttpSession httpSession) {
 		try {
 			udao.persistUser(u);
 			httpSession.setAttribute("user", u);
 			return ju.toJson(u);
 		} catch (Exception e) {
-			// We have to catch this exception ourselves, because we want to
-			// return json
-			// "null" when the user can't be persisted, but if an exception is
-			// thrown the
-			// logging aspect will take over and return actual null instead of
-			// json "null".
-			return ju.getJsonNull();
+			// We have to catch this exception ourselves, because we want to return json
+			// "null" when the user can't be persisted, but if an exception is thrown the
+			// logging aspect will take over and return actual null instead of json "null".
+			return JsonUtil.JSON_NULL;
 		}
 	}
 
