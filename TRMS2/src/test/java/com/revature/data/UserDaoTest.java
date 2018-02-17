@@ -1,14 +1,16 @@
 package com.revature.data;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
 public class UserDaoTest {
-	@Autowired
 	UserDao dao;
+
+	@Before
+	public void before() {
+		dao = new UserHibernateDao();
+	}
 
 	@Test
 	public void autowireTest() {
