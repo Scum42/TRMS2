@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.data.TournamentDao;
+import com.revature.util.JsonUtil;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
@@ -26,6 +27,7 @@ public class TournamentController {
 	@Autowired
 	private TournamentDao tournyDao;
 
+	private static JsonUtil ju = new JsonUtil();
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
 
@@ -41,8 +43,16 @@ public class TournamentController {
 	public String getPlayerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByPlayer(u);
-		String json = om.writeValueAsString(t);
+		String json = ju.toJson(t);
 		log.trace(json);
+		return json;
+	}
+	
+	@RequestMapping(value = "/alltournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllTournamentsAOP() throws JsonProcessingException {
+		List<Tournament> t = tournyDao.loadAllTournaments();
+		String json = ju.toJson(t);
 		return json;
 	}
 

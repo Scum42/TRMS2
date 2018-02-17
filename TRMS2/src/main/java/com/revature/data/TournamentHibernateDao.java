@@ -31,6 +31,13 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	public Tournament loadTournament(int id) {
 		return (Tournament) session.get(Tournament.class, id);
 	}
+	
+	@Override
+	public List<Tournament> loadAllTournaments() {
+		String hql = "From com.revature.beans.Tournament";
+		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
+		return t;
+	}
 
 	@Override
 	public List<Tournament> loadTournamentsByOwner(User user) {
