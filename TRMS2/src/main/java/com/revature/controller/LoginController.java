@@ -30,6 +30,7 @@ public class LoginController {
 	public String login(@RequestBody User u, HttpSession httpSession) throws JsonProcessingException {
 		User current = udao.loadUserByUsernameAndPassword(u.getUsername(), u.getPassword());
 		httpSession.setAttribute("user", current);
+
 		String json = ju.toJson(current);
 		return json;
 	}
@@ -50,9 +51,12 @@ public class LoginController {
 			httpSession.setAttribute("user", u);
 			return ju.toJson(u);
 		} catch (Exception e) {
-			// We have to catch this exception ourselves, because we want to return json
-			// "null" when the user can't be persisted, but if an exception is thrown the
-			// logging aspect will take over and return actual null instead of json "null".
+			// We have to catch this exception ourselves, because we want to
+			// return json
+			// "null" when the user can't be persisted, but if an exception is
+			// thrown the
+			// logging aspect will take over and return actual null instead of
+			// json "null".
 			return ju.getJsonNull();
 		}
 	}
