@@ -12,7 +12,7 @@ public interface TournamentDao {
 	public Tournament loadTournament(int id);
 
 	public List<Tournament> loadAllTournaments();
-	
+
 	public List<Tournament> loadTournamentsByOwner(User user);
 
 	public List<Tournament> loadTournamentsByJudge(User user);

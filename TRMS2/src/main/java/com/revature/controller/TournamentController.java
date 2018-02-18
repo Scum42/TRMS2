@@ -30,6 +30,7 @@ public class TournamentController {
 	@Autowired
 	JsonUtil ju;
 
+	private static JsonUtil ju = new JsonUtil();
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
 
@@ -69,14 +70,12 @@ public class TournamentController {
 		log.trace(json);
 		return json;
 	}
-
+	
 	@RequestMapping(value = "/alltournaments", method = RequestMethod.GET)
 	@ResponseBody
-	public String getAllTournamentsAOP(HttpSession session) throws JsonProcessingException {
-		User u = (User) session.getAttribute("user");
+	public String getAllTournamentsAOP() throws JsonProcessingException {
 		List<Tournament> t = tournyDao.loadAllTournaments();
 		String json = ju.toJson(t);
-		log.trace(json);
 		return json;
 	}
 
