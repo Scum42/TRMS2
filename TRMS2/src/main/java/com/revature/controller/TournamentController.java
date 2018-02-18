@@ -30,7 +30,6 @@ public class TournamentController {
 	@Autowired
 	JsonUtil ju;
 
-	private static JsonUtil ju = new JsonUtil();
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
 
