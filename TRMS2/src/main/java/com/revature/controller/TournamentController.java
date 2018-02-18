@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.data.TournamentDao;
+import com.revature.util.JsonUtil;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
@@ -25,6 +26,9 @@ public class TournamentController {
 	
 	@Autowired
 	private TournamentDao tournyDao;
+	
+	@Autowired
+	JsonUtil ju;
 
 	private static Logger log = Logger.getLogger(TournamentController.class);
 	private static ObjectMapper om = new ObjectMapper();
@@ -33,7 +37,7 @@ public class TournamentController {
 	@ResponseBody
 	public String getTournamentAOP(@RequestBody int id) throws JsonProcessingException {
 		Tournament t = tournyDao.loadTournament(id);
-		return om.writeValueAsString(t);
+		return ju.toJson(t);
 	}
 	
 	@RequestMapping(value = "/mytournaments", method = RequestMethod.GET)
@@ -41,7 +45,37 @@ public class TournamentController {
 	public String getPlayerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByPlayer(u);
-		String json = om.writeValueAsString(t);
+		String json = ju.toJson(t);
+		log.trace(json);
+		return json;
+	}
+
+	@RequestMapping(value = "/ownertournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getOwnerTournamentsAOP(HttpSession session) throws JsonProcessingException {
+		User u = (User) session.getAttribute("user");
+		List<Tournament> t = tournyDao.loadTournamentsByOwner(u);
+		String json = ju.toJson(t);
+		log.trace(json);
+		return json;
+	}
+
+	@RequestMapping(value = "/judgetournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getJudgeTournamentsAOP(HttpSession session) throws JsonProcessingException {
+		User u = (User) session.getAttribute("user");
+		List<Tournament> t = tournyDao.loadTournamentsByJudge(u);
+		String json = ju.toJson(t);
+		log.trace(json);
+		return json;
+	}
+
+	@RequestMapping(value = "/alltournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllTournamentsAOP(HttpSession session) throws JsonProcessingException {
+		User u = (User) session.getAttribute("user");
+		List<Tournament> t = tournyDao.loadAllTournaments();
+		String json = ju.toJson(t);
 		log.trace(json);
 		return json;
 	}

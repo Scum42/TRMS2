@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Tournament;
@@ -35,14 +37,16 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public List<Tournament> loadTournamentsByOwner(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria cri = session.createCriteria(Tournament.class);
+		cri.add(Restrictions.eq("ownerId", user));
+		return (List<Tournament>) cri.list();
 	}
 
 	@Override
 	public List<Tournament> loadTournamentsByJudge(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria cri = session.createCriteria(Tournament.class);
+		cri.add(Restrictions.eq("judgeId", user));
+		return (List<Tournament>) cri.list();
 	}
 
 	@Override
@@ -73,6 +77,13 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	public void mergeTournament(Tournament tournament) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Tournament> loadAllTournaments() {
+		String hql = "From com.revature.beans.Tournament";
+		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
+		return t;
 	}
 
 }
