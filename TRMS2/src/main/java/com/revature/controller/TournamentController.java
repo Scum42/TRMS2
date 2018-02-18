@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.data.TournamentDao;
@@ -31,7 +31,7 @@ public class TournamentController {
 	JsonUtil ju;
 
 	private static Logger log = Logger.getLogger(TournamentController.class);
-	private static ObjectMapper om = new ObjectMapper();
+	//private static ObjectMapper om = new ObjectMapper();
 
 	@RequestMapping(value = "/tournament", method = RequestMethod.POST)
 	@ResponseBody
@@ -76,6 +76,43 @@ public class TournamentController {
 		List<Tournament> t = tournyDao.loadAllTournaments();
 		String json = ju.toJson(t);
 		return json;
+	}
+	
+	@RequestMapping(value = "/allOtherTournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllOtherTournamentsAOP(HttpSession session) throws JsonProcessingException {
+		List<Tournament> othersTournaments = tournyDao.loadOthersTournaments((User) session.getAttribute("user"));
+		String json = ju.toJson(othersTournaments);
+		log.trace(json);
+		return json;
+	}
+	
+	@RequestMapping(value = "/joinTournament", method = RequestMethod.POST)
+	@ResponseBody
+	public String joinTournamentAOP(@RequestBody Tournament tournament, HttpSession session) throws JsonProcessingException {
+		if(tournament == null){
+			// If the input tournament is null for whatever reason, return null as well
+			log.trace("\n\nTournament was empty in joinTournament");
+			return JsonUtil.JSON_NULL;
+		}else{
+			List<User> tRegUsers = tournament.getRegisteredUsers();
+			User signedUser = (User) session.getAttribute("user");
+			if(tRegUsers.contains(signedUser) == false && tRegUsers.size() + 1 < tournament.getMaxNum()){
+				// If the user isn't in the tournament and it won't go over the max, we add user
+				tRegUsers.add(signedUser);
+				tournament.setRegisteredUsers(tRegUsers); // Because I'm paranoid
+				log.trace("User wasn't in the registered list. Adding ...");
+				
+				// My Merge uses a returned tournament. Will test without it.
+				Tournament updated = tournyDao.mergeTournament(tournament);
+				return ju.toJson(updated);
+			} else {
+				// The user was already in the tournament, or the tournament was full.
+				// Will return null as that is what I need for the Angular portion
+				log.trace("User was already in the tournament or the tournament was full!");
+				return JsonUtil.JSON_NULL;
+			}
+		}
 	}
 
 }
