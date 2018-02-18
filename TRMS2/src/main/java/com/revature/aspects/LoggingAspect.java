@@ -24,7 +24,7 @@ public class LoggingAspect {
 	/* Aspects */
 	@Around("allMethods()")
 	public Object log(ProceedingJoinPoint pjp) {
-		log.trace("Method `" + pjp.getSignature() + "` invoked with arguments " + Arrays.toString(pjp.getArgs()));
+		log.trace("Method \"" + pjp.getSignature() + "\" invoked with arguments " + Arrays.toString(pjp.getArgs()));
 		Object pjpReturn = null;
 
 		try {
@@ -37,7 +37,7 @@ public class LoggingAspect {
 			}
 		}
 
-		log.info("Method `" + pjp.getSignature() + "` returned " + pjpReturn);
+		log.info("Method \"" + pjp.getSignature() + "\" returned " + pjpReturn);
 		return pjpReturn;
 	}
 
