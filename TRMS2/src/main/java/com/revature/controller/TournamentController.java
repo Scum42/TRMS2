@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-//import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Tournament;
 import com.revature.beans.User;
 import com.revature.data.TournamentDao;
@@ -31,7 +31,7 @@ public class TournamentController {
 	JsonUtil ju;
 
 	private static Logger log = Logger.getLogger(TournamentController.class);
-	//private static ObjectMapper om = new ObjectMapper();
+	private static ObjectMapper om = new ObjectMapper();
 
 	@RequestMapping(value = "/tournament", method = RequestMethod.POST)
 	@ResponseBody
