@@ -56,11 +56,13 @@ public class TournamentController {
 	
 	@RequestMapping(value="/tournament-allOther", method = RequestMethod.GET)
 	@ResponseBody
-	public String getAllOtherTournaments() throws JsonProcessingException{
+	public String getAllOtherTournaments(HttpSession httpSession) throws JsonProcessingException{
 		Session session = hu.getSession();
 		String query = "From com.revature.beans.Tournament WHERE owner !=:own";
-		User owner = uh.getUser(1); 
-		//For now, just going to get the tournaments that user 1 doesn't have ... I hope
+		// Need to get the currently signed in user
+		// User owner = uh.getUser(1); 
+		User owner = (User) httpSession.getAttribute("user");
+		
 		Query<Tournament> q = session.createQuery(query, Tournament.class);
 		q.setParameter("own", owner);
 		List<Tournament> tournList = q.getResultList();
@@ -95,12 +97,14 @@ public class TournamentController {
 				tour.setRegisteredUsers(tourReg);
 				
 				outMess = "RegisteredUsers was empty! Adding ...";
-			}else */if(tourReg.contains(me) == false && tourReg.size() + 1 < tourn.getMaxNum()){
+			}else */
+			if(tourReg.contains(me) == false && tourReg.size() + 1 < tourn.getMaxNum()){
 				tourReg.add(me);
 				tourn.setRegisteredUsers(tourReg);
 				log.trace("User wasn't in Registered List! Adding ...");
 			}else{
-				log.trace("User was already added!");
+				log.trace("User was already added or tournament is full!");
+				return om.writeValueAsString(null);
 			}
 			Tournament tourUpdated = (Tournament) s.merge(tourn);
 			tx.commit();
