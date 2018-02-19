@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Team;
 import com.revature.services.TeamService;
+import com.revature.util.JsonUtil;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
@@ -19,7 +19,8 @@ public class TeamController {
 	@Autowired
 	private TeamService teamService;
 
-	private static ObjectMapper om = new ObjectMapper();
+	@Autowired
+	private JsonUtil jsonUtil;
 
 	/*
 	 * Test for all CRUD operations in TeamDaoHibernate/TeamService. Constructs a
@@ -35,21 +36,21 @@ public class TeamController {
 		// Team team = new Team(0, "ChannelFireball Ice");
 		Team team = new Team();
 		team.setTeamName("ChannelFireball Ice");
-		response += "Our new team: " + om.writeValueAsString(team) + "\n";
+		response += "Our new team: " + jsonUtil.toJson(team) + "\n";
 
 		team = teamService.createTeam(team);
-		response += "Created team: " + om.writeValueAsString(team) + "\n";
+		response += "Created team: " + jsonUtil.toJson(team) + "\n";
 
 		team = teamService.getTeam(team.getTeamId());
-		response += "Fetched team: " + om.writeValueAsString(team) + "\n";
+		response += "Fetched team: " + jsonUtil.toJson(team) + "\n";
 
 		team.setTeamName("ChannelFireball Fire");
 		team = teamService.updateTeam(team);
-		response += "Updated team: " + om.writeValueAsString(team) + "\n";
+		response += "Updated team: " + jsonUtil.toJson(team) + "\n";
 
 		teamService.deleteTeam(team);
 		team = teamService.getTeam(team.getTeamId());
-		response += "Deleted team: " + om.writeValueAsString(team) + "\n";
+		response += "Deleted team: " + jsonUtil.toJson(team) + "\n";
 
 		return response;
 	}
