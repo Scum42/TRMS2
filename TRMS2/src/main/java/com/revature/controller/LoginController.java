@@ -59,7 +59,13 @@ public class LoginController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		session.invalidate();
-		return ju.getJsonSuccess(true);
+		boolean result = true;
+		try {
+			session.invalidate();
+		} catch (Exception e) {
+			// I don't understand how this could ever fail, but... I mean, it might.
+			result = false;
+		}
+		return ju.getJsonSuccess(result);
 	}
 }
