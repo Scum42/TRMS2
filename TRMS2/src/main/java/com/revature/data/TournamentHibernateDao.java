@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Tournament;
@@ -72,17 +73,25 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 		log.trace(myTournys);
 		return myTournys;
 	}
-
+	
 	@Override
-	public void deleteTournament(Tournament tournament) {
-		// TODO Auto-generated method stub
-
+	public List<Tournament> loadOthersTournaments(User user) {
+		String hql = "From com.revature.beans.Tournament Where owner !=:own";
+		Query<Tournament> q = session.createQuery(hql, Tournament.class);
+		q.setParameter("own", user);
+		List<Tournament> othersTournaments = q.getResultList();
+		return othersTournaments;
 	}
 
 	@Override
-	public void mergeTournament(Tournament tournament) {
-		// TODO Auto-generated method stub
+	public void deleteTournament(Tournament tournament) {
+		session.delete(tournament);
+	}
 
+	@Override
+	public Tournament mergeTournament(Tournament tournament) {
+		Tournament t = (Tournament) session.merge(tournament);
+		return t;
 	}
 
 }

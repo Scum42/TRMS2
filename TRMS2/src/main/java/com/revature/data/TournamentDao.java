@@ -18,9 +18,11 @@ public interface TournamentDao {
 	public List<Tournament> loadTournamentsByJudge(User user);
 
 	public List<Tournament> loadTournamentsByPlayer(User user);
+	
+	public List<Tournament> loadOthersTournaments(User user);
 
 	public void deleteTournament(Tournament tournament);
 
-	public void mergeTournament(Tournament tournament);
+	public Tournament mergeTournament(Tournament tournament);
 
 }

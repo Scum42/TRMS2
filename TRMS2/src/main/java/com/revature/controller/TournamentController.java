@@ -77,5 +77,41 @@ public class TournamentController {
 		String json = ju.toJson(t);
 		return json;
 	}
-
+	
+	@RequestMapping(value = "/allOtherTournaments", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllOtherTournamentsAOP(HttpSession session) throws JsonProcessingException {
+		List<Tournament> othersTournaments = tournyDao.loadOthersTournaments((User) session.getAttribute("user"));
+		String json = ju.toJson(othersTournaments);
+		log.trace(json);
+		return json;
+	}
+	
+	@RequestMapping(value = "/joinTournament", method = RequestMethod.POST)
+	@ResponseBody
+	public String joinTournamentAOP(@RequestBody Tournament tournament, HttpSession session) throws JsonProcessingException {
+		if(tournament == null){
+			// If the input tournament is null for whatever reason, return null as well
+			log.trace("\n\nTournament was empty in joinTournament");
+			return JsonUtil.JSON_NULL;
+		}else{
+			List<User> tRegUsers = tournament.getRegisteredUsers();
+			User signedUser = (User) session.getAttribute("user");
+			if(tRegUsers.contains(signedUser) == false && tRegUsers.size() + 1 < tournament.getMaxNum()){
+				// If the user isn't in the tournament and it won't go over the max, we add user
+				tRegUsers.add(signedUser);
+				tournament.setRegisteredUsers(tRegUsers); // Because I'm paranoid
+				log.trace("User wasn't in the registered list. Adding ...");
+				
+				// My Merge uses a returned tournament. Will test without it.
+				Tournament updated = tournyDao.mergeTournament(tournament);
+				return ju.toJson(updated);
+			} else {
+				// The user was already in the tournament, or the tournament was full.
+				// Will return null as that is what I need for the Angular portion
+				log.trace("User was already in the tournament or the tournament was full!");
+				return JsonUtil.JSON_NULL;
+			}
+		}
+	}
 }
