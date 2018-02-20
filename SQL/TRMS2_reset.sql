@@ -63,7 +63,7 @@ create table results (
 );
 --
 create table team_to_user (
-    t_id number(10) references tournament (tournament_id),
+    t_id number(10) references team (team_id),
     p_id number(10) references users (user_id),
     constraint team_user_pk primary key (t_id, p_id)
 );

@@ -54,6 +54,7 @@ public class TournamentController {
 	@ResponseBody
 	public String getOwnerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
+		log.trace("\n\n\n\tOwner is: " + u);
 		List<Tournament> t = tournyDao.loadTournamentsByOwner(u);
 		String json = ju.toJson(t);
 		log.trace(json);
@@ -91,27 +92,53 @@ public class TournamentController {
 	@ResponseBody
 	public String joinTournamentAOP(@RequestBody Tournament tournament, HttpSession session) throws JsonProcessingException {
 		if(tournament == null){
-			// If the input tournament is null for whatever reason, return null as well
 			log.trace("\n\nTournament was empty in joinTournament");
 			return JsonUtil.JSON_NULL;
 		}else{
 			List<User> tRegUsers = tournament.getRegisteredUsers();
 			User signedUser = (User) session.getAttribute("user");
 			if(tRegUsers.contains(signedUser) == false && tRegUsers.size() + 1 < tournament.getMaxNum()){
-				// If the user isn't in the tournament and it won't go over the max, we add user
 				tRegUsers.add(signedUser);
-				tournament.setRegisteredUsers(tRegUsers); // Because I'm paranoid
+				tournament.setRegisteredUsers(tRegUsers);
 				log.trace("User wasn't in the registered list. Adding ...");
-				
-				// My Merge uses a returned tournament. Will test without it.
 				Tournament updated = tournyDao.mergeTournament(tournament);
 				return ju.toJson(updated);
 			} else {
-				// The user was already in the tournament, or the tournament was full.
-				// Will return null as that is what I need for the Angular portion
 				log.trace("User was already in the tournament or the tournament was full!");
 				return JsonUtil.JSON_NULL;
 			}
+		}
+	}
+	
+	@RequestMapping(value = "/dropUserFromTournament", method = RequestMethod.POST)
+	@ResponseBody
+	public String dropUserFromTournamentAOP(@RequestBody User drop, HttpSession session) throws JsonProcessingException {
+		Tournament tournament = (Tournament) session.getAttribute("tournamentReject");
+		if(tournament == null){
+			return JsonUtil.JSON_NULL;
+		}
+		if(tournament.getTournyRounds() != null || !tournament.getTournyRounds().isEmpty()){
+			log.trace("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			log.trace("Tournament has already started!");
+			log.trace("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			return JsonUtil.JSON_NULL;
+		}else{
+			List<User> tRegUsers = tournament.getRegisteredUsers();
+			tRegUsers.remove(drop);
+			tournament.setRegisteredUsers(tRegUsers);
+			Tournament updated = tournyDao.mergeTournament(tournament);
+			return ju.toJson(updated);
+		}
+	}
+	
+	@RequestMapping(value = "/selectTournamentForReject", method = RequestMethod.POST)
+	@ResponseBody
+	public String selectingTournament(@RequestBody Tournament tourn, HttpSession session) throws JsonProcessingException{
+		if(session.getAttribute("user") != null){
+			session.setAttribute("tournamentReject", tourn);
+			return ju.toJson(tourn);
+		}else{
+			return JsonUtil.JSON_NULL;
 		}
 	}
 }

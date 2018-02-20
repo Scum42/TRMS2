@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
@@ -44,15 +45,20 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public List<Tournament> loadTournamentsByOwner(User user) {
-		Criteria cri = session.createCriteria(Tournament.class);
-		cri.add(Restrictions.eq("ownerId", user));
-		return (List<Tournament>) cri.list();
+		/*Criteria cri = session.createCriteria(Tournament.class);
+		cri.add(Restrictions.eq("owner", user));
+		return (List<Tournament>) cri.list();*/
+		String hql = "From com.revature.beans.Tournament Where owner=:own";
+		Query<Tournament> q = session.createQuery(hql, Tournament.class);
+		q.setParameter("own", user);
+		List<Tournament> myTournaments = q.getResultList();
+		return myTournaments;
 	}
 
 	@Override
 	public List<Tournament> loadTournamentsByJudge(User user) {
 		Criteria cri = session.createCriteria(Tournament.class);
-		cri.add(Restrictions.eq("judgeId", user));
+		cri.add(Restrictions.eq("judge", user));
 		return (List<Tournament>) cri.list();
 	}
 
