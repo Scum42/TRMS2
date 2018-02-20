@@ -37,7 +37,7 @@ public class LoggingAspect {
 			}
 		}
 
-		log.info("Returning method \"" + pjp.getSignature() + "\" " + pjpReturn);
+		log.info("Returning method \"" + pjp.getSignature() + "\" with value " + pjpReturn);
 		return pjpReturn;
 	}
 
