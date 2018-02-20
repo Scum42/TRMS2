@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,15 @@ public class TeamController {
 	private TeamService teamService;
 
 	@RequestMapping(value = "/team", method = RequestMethod.GET)
-	public Team getTeam(HttpServletRequest request) throws JsonProcessingException {
+	public Team getTeam(HttpServletRequest request) {
 		int teamId = Integer.parseInt(request.getParameter("teamId"));
 		return teamService.getTeam(teamId);
+	}
+
+	@RequestMapping(value = "/my-teams", method = RequestMethod.GET)
+	public Collection<Team> getMyTeams(HttpServletRequest request) {
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		return teamService.getTeamsByMember(userId);
 	}
 
 	/*
