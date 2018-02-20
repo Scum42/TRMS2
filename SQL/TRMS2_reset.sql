@@ -46,7 +46,7 @@ create table round (
     round_id number(10) primary key,
     round_num number(10) not null,
     player1 number(10) not null,
-    player2 number(10) not null,
+    player2 number(10),
     r_result number(10) not null
 );
 --

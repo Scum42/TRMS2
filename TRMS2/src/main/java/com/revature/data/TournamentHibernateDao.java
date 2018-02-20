@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
@@ -26,16 +25,15 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	}
 
 	@Override
-	public Tournament persistTournament(Tournament tournament) {
-		// TODO Auto-generated method stub
-		return null;
+	public void persistTournament(Tournament tournament) {
+		session.save(tournament);
 	}
 
 	@Override
 	public Tournament loadTournament(int id) {
 		return (Tournament) session.get(Tournament.class, id);
 	}
-	
+
 	@Override
 	public List<Tournament> loadAllTournaments() {
 		String hql = "From com.revature.beans.Tournament";
@@ -45,9 +43,6 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public List<Tournament> loadTournamentsByOwner(User user) {
-		/*Criteria cri = session.createCriteria(Tournament.class);
-		cri.add(Restrictions.eq("owner", user));
-		return (List<Tournament>) cri.list();*/
 		String hql = "From com.revature.beans.Tournament Where owner=:own";
 		Query<Tournament> q = session.createQuery(hql, Tournament.class);
 		q.setParameter("own", user);
@@ -79,7 +74,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 		log.trace(myTournys);
 		return myTournys;
 	}
-	
+
 	@Override
 	public List<Tournament> loadOthersTournaments(User user) {
 		String hql = "From com.revature.beans.Tournament Where owner !=:own";

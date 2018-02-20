@@ -11,7 +11,7 @@ public interface ResultsDao {
 	 *            Result object to be inserted
 	 * @return id of created Results
 	 */
-	public Results persistResults(Results result);
+	public int persistResults(Results result);
 
 	/**
 	 * returns Results object from database
