@@ -38,6 +38,7 @@ public class RoundHibernateDao implements RoundDao, HibernateSession {
 		Query<Tournament> q = session.createQuery(hql, Tournament.class);
 		q.setParameter("id", id);
 		Tournament t = q.getSingleResult();
+		log.trace(t);
 		return t.getTournyRounds();
 	}
 

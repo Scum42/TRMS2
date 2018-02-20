@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Results;
 import com.revature.data.ResultsDao;
 import com.revature.util.JsonUtil;
@@ -27,12 +26,12 @@ public class ResultsController {
 	JsonUtil ju;
 	
 	private static Logger log = Logger.getLogger(ResultsController.class);
-	private static ObjectMapper om = new ObjectMapper();
 	
 	@RequestMapping(value = "/results", method = RequestMethod.POST)
 	@ResponseBody
 	public String submitResults(@RequestBody Results r, HttpSession httpSession) {
 		try {
+			log.trace(r);
 			rd.persistResults(r);
 			return ju.toJson(r);
 		} catch (Exception e) {
