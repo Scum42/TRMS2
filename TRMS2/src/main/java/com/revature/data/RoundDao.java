@@ -1,6 +1,6 @@
 package com.revature.data;
 
-import java.util.Set;
+import java.util.List;
 
 import com.revature.beans.Round;
 import com.revature.beans.Tournament;
@@ -12,9 +12,9 @@ public interface RoundDao {
 
 	public Round loadRound(int id);
 
-	public Set<Round> loadRoundsByTournament(Tournament tournament);
+	public List<Round> loadRoundsByTournament(int id);
 
-	public Set<Round> loadRoundsByPlayer(User user);
+	public List<Round> loadRoundsByPlayer(User user);
 
 	public void deleteRound(Round round);
 
