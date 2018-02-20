@@ -12,8 +12,8 @@ public class UserHibernateDao implements UserDao, HibernateSession {
 	private Session session;
 
 	@Override
-	public int persistUser(User u) {
-		return (Integer) session.save(u);
+	public void persistUser(User u) {
+		session.save(u);
 	}
 
 	@Override

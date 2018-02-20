@@ -25,16 +25,15 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	}
 
 	@Override
-	public Tournament persistTournament(Tournament tournament) {
-		// TODO Auto-generated method stub
-		return null;
+	public void persistTournament(Tournament tournament) {
+		session.save(tournament);
 	}
 
 	@Override
 	public Tournament loadTournament(int id) {
 		return (Tournament) session.get(Tournament.class, id);
 	}
-	
+
 	@Override
 	public List<Tournament> loadAllTournaments() {
 		String hql = "From com.revature.beans.Tournament";
@@ -73,7 +72,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 		log.trace(myTournys);
 		return myTournys;
 	}
-	
+
 	@Override
 	public List<Tournament> loadOthersTournaments(User user) {
 		String hql = "From com.revature.beans.Tournament Where owner !=:own";

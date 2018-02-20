@@ -7,7 +7,7 @@ import com.revature.beans.User;
 
 public interface TournamentDao {
 
-	public Tournament persistTournament(Tournament tournament);
+	public void persistTournament(Tournament tournament);
 
 	public Tournament loadTournament(int id);
 
