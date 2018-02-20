@@ -37,8 +37,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 	@Override
 	public List<Tournament> loadAllTournaments() {
 		String hql = "From com.revature.beans.Tournament";
-		List<Tournament> t = (List<Tournament>) session.createQuery(hql).list();
-		return t;
+		return (List<Tournament>) session.createQuery(hql).list();
 	}
 
 	@Override
@@ -78,8 +77,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 		String hql = "From com.revature.beans.Tournament Where owner !=:own";
 		Query<Tournament> q = session.createQuery(hql, Tournament.class);
 		q.setParameter("own", user);
-		List<Tournament> othersTournaments = q.getResultList();
-		return othersTournaments;
+		return q.getResultList();
 	}
 
 	@Override
@@ -89,8 +87,7 @@ public class TournamentHibernateDao implements TournamentDao, HibernateSession {
 
 	@Override
 	public Tournament mergeTournament(Tournament tournament) {
-		Tournament t = (Tournament) session.merge(tournament);
-		return t;
+		return (Tournament) session.merge(tournament);
 	}
 
 }

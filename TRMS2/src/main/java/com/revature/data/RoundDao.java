@@ -3,7 +3,6 @@ package com.revature.data;
 import java.util.List;
 
 import com.revature.beans.Round;
-import com.revature.beans.Tournament;
 import com.revature.beans.User;
 
 public interface RoundDao {
