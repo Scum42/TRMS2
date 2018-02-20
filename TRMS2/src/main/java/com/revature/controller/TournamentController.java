@@ -103,10 +103,10 @@ public class TournamentController {
 	@RequestMapping(value = "/dropUserFromTournament", method = RequestMethod.POST)
 	public String dropUserFromTournamentAOP(@RequestBody User drop, HttpSession session) throws JsonProcessingException {
 		Tournament tournament = (Tournament) session.getAttribute("tournamentReject");
-		if(tournament == null){
+		if(tournament == null || tournament.getTournyRounds() == null){
 			return JsonUtil.JSON_NULL;
 		}
-		if(tournament.getTournyRounds() != null || !tournament.getTournyRounds().isEmpty()){
+		if(!tournament.getTournyRounds().isEmpty()){
 			log.trace("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			log.trace("Tournament has already started!");
 			log.trace("~~~~~~~~~~~~~~~~~~~~~~~~~~");
