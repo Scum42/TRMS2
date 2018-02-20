@@ -24,7 +24,6 @@ public class RoundHibernateDao implements RoundDao, HibernateSession {
 
 	@Override
 	public Round persistRound(Round round) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -39,25 +38,24 @@ public class RoundHibernateDao implements RoundDao, HibernateSession {
 		Query<Tournament> q = session.createQuery(hql, Tournament.class);
 		q.setParameter("id", id);
 		Tournament t = q.getSingleResult();
-		List<Round> r = t.getTournyRounds();
-		return r;
+		log.trace(t);
+		return t.getTournyRounds();
 	}
 
 	@Override
 	public List<Round> loadRoundsByPlayer(User user) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void deleteRound(Round round) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public Round mergeRound(Round round) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

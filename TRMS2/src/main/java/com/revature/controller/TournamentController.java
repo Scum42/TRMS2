@@ -40,9 +40,7 @@ public class TournamentController {
 	public String getPlayerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByPlayer(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/ownertournaments", method = RequestMethod.GET)
@@ -50,33 +48,26 @@ public class TournamentController {
 		User u = (User) session.getAttribute("user");
 		log.trace("\n\n\n\tOwner is: " + u);
 		List<Tournament> t = tournyDao.loadTournamentsByOwner(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/judgetournaments", method = RequestMethod.GET)
 	public String getJudgeTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByJudge(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/alltournaments", method = RequestMethod.GET)
 	public String getAllTournamentsAOP() throws JsonProcessingException {
 		List<Tournament> t = tournyDao.loadAllTournaments();
-		String json = ju.toJson(t);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/allOtherTournaments", method = RequestMethod.GET)
 	public String getAllOtherTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		List<Tournament> othersTournaments = tournyDao.loadOthersTournaments((User) session.getAttribute("user"));
-		String json = ju.toJson(othersTournaments);
-		log.trace(json);
-		return json;
+		return ju.toJson(othersTournaments);
 	}
 	
 	@RequestMapping(value = "/joinTournament", method = RequestMethod.POST)
