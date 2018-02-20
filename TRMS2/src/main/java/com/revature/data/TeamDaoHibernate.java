@@ -1,6 +1,9 @@
 package com.revature.data;
 
+import java.util.Collection;
+
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Team;
@@ -25,6 +28,13 @@ public class TeamDaoHibernate implements HibernateSession, TeamDao {
 	public Team loadTeam(int id) {
 		Team team = session.get(Team.class, id);
 		return team;
+	}
+
+	@Override
+	public Collection<Team> loadAllTeams() {
+		String queryString = "from com.revature.beans.Team";
+		Query<Team> query = session.createQuery(queryString, Team.class);
+		return query.getResultList();
 	}
 
 	@Override

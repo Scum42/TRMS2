@@ -2,15 +2,12 @@ package com.revature.controller;
 
 import java.util.Collection;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.revature.beans.Team;
 import com.revature.services.TeamService;
 
@@ -22,14 +19,17 @@ public class TeamController {
 	private TeamService teamService;
 
 	@RequestMapping(value = "/team", method = RequestMethod.GET)
-	public Team getTeam(HttpServletRequest request) {
-		int teamId = Integer.parseInt(request.getParameter("teamId"));
+	public Team getTeam(int teamId) {
 		return teamService.getTeam(teamId);
 	}
 
+	@RequestMapping(value = "/teams", method = RequestMethod.GET)
+	public Collection<Team> getAllTeams() {
+		return teamService.getAllTeams();
+	}
+
 	@RequestMapping(value = "/my-teams", method = RequestMethod.GET)
-	public Collection<Team> getMyTeams(HttpServletRequest request) {
-		int userId = Integer.parseInt(request.getParameter("userId"));
+	public Collection<Team> getMyTeams(int userId) {
 		return teamService.getTeamsByMember(userId);
 	}
 

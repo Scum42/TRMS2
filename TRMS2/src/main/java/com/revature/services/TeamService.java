@@ -27,6 +27,10 @@ public class TeamService {
 		return teamDao.loadTeam(id);
 	}
 
+	public Collection<Team> getAllTeams() {
+		return teamDao.loadAllTeams();
+	}
+
 	public Collection<Team> getTeamsByMember(int userId) {
 		User user = userDao.loadUser(userId);
 		return user.getMyTeams();
