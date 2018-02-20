@@ -1,6 +1,6 @@
 package com.revature.controller;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.beans.Round;
-import com.revature.data.RoundDao;
+import com.revature.beans.Results;
+import com.revature.data.ResultsDao;
 import com.revature.util.JsonUtil;
 
 @Controller
 @CrossOrigin(origins = { "http://localhost:4200", "http://18.216.71.226:4200" })
-public class RoundController {
-	
+public class ResultsController {
+
 	@Autowired
-	private RoundDao rd;
+	ResultsDao rd;
 	
 	@Autowired
 	JsonUtil ju;
 	
-	private static Logger log = Logger.getLogger(RoundController.class);
+	private static Logger log = Logger.getLogger(ResultsController.class);
 	private static ObjectMapper om = new ObjectMapper();
 	
-	@RequestMapping(value = "/tournamentrounds", method = RequestMethod.POST)
+	@RequestMapping(value = "/results", method = RequestMethod.POST)
 	@ResponseBody
-	public String getTournamentRounds(@RequestBody int id) throws JsonProcessingException {
-		List<Round> r = rd.loadRoundsByTournament(id);
-		String json = ju.toJson(r);
-		log.trace(json);
-		return json;
+	public String submitResults(@RequestBody Results r, HttpSession httpSession) {
+		try {
+			rd.persistResults(r);
+			return ju.toJson(r);
+		} catch (Exception e) {
+			return JsonUtil.JSON_NULL;
+		}
 	}
 }

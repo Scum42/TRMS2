@@ -46,7 +46,7 @@ create table round (
     round_id number(10) primary key,
     round_num number(10) not null,
     player1 number(10) not null,
-    player2 number(10) not null,
+    player2 number(10),
     r_result number(10) not null
 );
 --
@@ -63,7 +63,7 @@ create table results (
 );
 --
 create table team_to_user (
-    t_id number(10) references tournament (tournament_id),
+    t_id number(10) references team (team_id),
     p_id number(10) references users (user_id),
     constraint team_user_pk primary key (t_id, p_id)
 );
