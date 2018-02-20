@@ -62,7 +62,7 @@ create table results (
     loss number(10) -- player id of loser
 );
 --
-create table team_to_user (
+CREATE TABLE team_to_user (
     t_id number(10) references team (team_id),
     p_id number(10) references users (user_id),
     constraint team_user_pk primary key (t_id, p_id)
