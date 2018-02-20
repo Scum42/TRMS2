@@ -18,12 +18,12 @@ public class TeamController {
 	@Autowired
 	private TeamService teamService;
 
-	@RequestMapping(value = "/team", method = RequestMethod.GET)
+	@RequestMapping(value = "/teams", method = RequestMethod.GET)
 	public Team getTeam(int teamId) {
 		return teamService.getTeam(teamId);
 	}
 
-	@RequestMapping(value = "/teams", method = RequestMethod.GET)
+	@RequestMapping(value = "/all-teams", method = RequestMethod.GET)
 	public Collection<Team> getAllTeams() {
 		return teamService.getAllTeams();
 	}
