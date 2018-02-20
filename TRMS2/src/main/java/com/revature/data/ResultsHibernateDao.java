@@ -11,10 +11,10 @@ public class ResultsHibernateDao implements ResultsDao, HibernateSession {
 
 	private Logger log = Logger.getLogger(ResultsHibernateDao.class);
 	private Session session;
-	
+
 	@Override
 	public void setSession(Session session) {
-		this.session = session;	
+		this.session = session;
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class ResultsHibernateDao implements ResultsDao, HibernateSession {
 	@Override
 	public void deleteResults(Results result) {
 		// TODO Auto-generated method stub
-		
+		// Not yet implemented
 	}
 
 	@Override
@@ -40,5 +40,4 @@ public class ResultsHibernateDao implements ResultsDao, HibernateSession {
 		return null;
 	}
 
-	
 }

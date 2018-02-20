@@ -40,42 +40,33 @@ public class TournamentController {
 	public String getPlayerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByPlayer(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/ownertournaments", method = RequestMethod.GET)
 	public String getOwnerTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByOwner(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/judgetournaments", method = RequestMethod.GET)
 	public String getJudgeTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		User u = (User) session.getAttribute("user");
 		List<Tournament> t = tournyDao.loadTournamentsByJudge(u);
-		String json = ju.toJson(t);
-		log.trace(json);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/alltournaments", method = RequestMethod.GET)
 	public String getAllTournamentsAOP() throws JsonProcessingException {
 		List<Tournament> t = tournyDao.loadAllTournaments();
-		String json = ju.toJson(t);
-		return json;
+		return ju.toJson(t);
 	}
 
 	@RequestMapping(value = "/allOtherTournaments", method = RequestMethod.GET)
 	public String getAllOtherTournamentsAOP(HttpSession session) throws JsonProcessingException {
 		List<Tournament> othersTournaments = tournyDao.loadOthersTournaments((User) session.getAttribute("user"));
-		String json = ju.toJson(othersTournaments);
-		log.trace(json);
-		return json;
+		return ju.toJson(othersTournaments);
 	}
 
 	@RequestMapping(value = "/joinTournament", method = RequestMethod.POST)
@@ -88,7 +79,7 @@ public class TournamentController {
 		} else {
 			List<User> tRegUsers = tournament.getRegisteredUsers();
 			User signedUser = (User) session.getAttribute("user");
-			if (tRegUsers.contains(signedUser) == false && tRegUsers.size() + 1 < tournament.getMaxNum()) {
+			if (!tRegUsers.contains(signedUser) && tRegUsers.size() + 1 < tournament.getMaxNum()) {
 				// If the user isn't in the tournament and it won't go over the max, we add user
 				tRegUsers.add(signedUser);
 				tournament.setRegisteredUsers(tRegUsers); // Because I'm paranoid
